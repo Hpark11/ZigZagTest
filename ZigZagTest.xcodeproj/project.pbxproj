@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DB43ED89114F2AA429A5697 /* Pods_ZigZagTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6071B82465856636B0F27F /* Pods_ZigZagTestUITests.framework */; };
 		811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133311F8E19BC00604D22 /* AppDelegate.swift */; };
-		811133341F8E19BC00604D22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133331F8E19BC00604D22 /* ViewController.swift */; };
 		811133371F8E19BC00604D22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811133351F8E19BC00604D22 /* Main.storyboard */; };
-		8111333A1F8E19BC00604D22 /* ZigZagTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 811133381F8E19BC00604D22 /* ZigZagTest.xcdatamodeld */; };
 		8111333C1F8E19BC00604D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8111333B1F8E19BC00604D22 /* Assets.xcassets */; };
 		8111333F1F8E19BC00604D22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8111333D1F8E19BC00604D22 /* LaunchScreen.storyboard */; };
 		8111334A1F8E19BC00604D22 /* ZigZagTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133491F8E19BC00604D22 /* ZigZagTestTests.swift */; };
 		811133551F8E19BD00604D22 /* ZigZagTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133541F8E19BD00604D22 /* ZigZagTestUITests.swift */; };
+		811133691F8E2E6100604D22 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133681F8E2E6100604D22 /* Stage.swift */; };
+		8111336B1F8E2E7900604D22 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111336A1F8E2E7900604D22 /* Navigator.swift */; };
+		8111336D1F8E306300604D22 /* RankingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111336C1F8E306300604D22 /* RankingListViewController.swift */; };
+		8111336F1F8E307B00604D22 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111336E1F8E307B00604D22 /* FilterViewController.swift */; };
+		811133711F8E30A400604D22 /* RankingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133701F8E30A400604D22 /* RankingListViewModel.swift */; };
+		811133731F8E30B100604D22 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133721F8E30B100604D22 /* FilterViewModel.swift */; };
+		815165481F8E35D2001493FD /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165471F8E35D2001493FD /* BaseViewModel.swift */; };
+		8151654A1F8E37AC001493FD /* NavigatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165491F8E37AC001493FD /* NavigatorType.swift */; };
+		8151654F1F8E5981001493FD /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151654E1F8E5981001493FD /* ViewModelBindable.swift */; };
+		8DFF25016B95C92E11AD9A73 /* Pods_ZigZagTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F544C0FEA2375DF12657821D /* Pods_ZigZagTestTests.framework */; };
+		D88567426DA2770CCB47F946 /* Pods_ZigZagTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BC97858FCC51CC974F9BBF /* Pods_ZigZagTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D748AC045E52126A635E18F /* Pods-ZigZagTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTest/Pods-ZigZagTest.release.xcconfig"; sourceTree = "<group>"; };
+		22A019C1BBAC7B1239E30BC9 /* Pods-ZigZagTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestTests/Pods-ZigZagTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		43BC97858FCC51CC974F9BBF /* Pods_ZigZagTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigZagTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F5B1FC7725BCCAC39692A1 /* Pods-ZigZagTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestUITests/Pods-ZigZagTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5C6071B82465856636B0F27F /* Pods_ZigZagTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigZagTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8111332E1F8E19BC00604D22 /* ZigZagTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigZagTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		811133311F8E19BC00604D22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		811133331F8E19BC00604D22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		811133361F8E19BC00604D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		811133391F8E19BC00604D22 /* ZigZagTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZigZagTest.xcdatamodel; sourceTree = "<group>"; };
 		8111333B1F8E19BC00604D22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8111333E1F8E19BC00604D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		811133401F8E19BC00604D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +62,19 @@
 		811133501F8E19BC00604D22 /* ZigZagTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZigZagTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		811133541F8E19BD00604D22 /* ZigZagTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigZagTestUITests.swift; sourceTree = "<group>"; };
 		811133561F8E19BD00604D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		811133681F8E2E6100604D22 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		8111336A1F8E2E7900604D22 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		8111336C1F8E306300604D22 /* RankingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListViewController.swift; sourceTree = "<group>"; };
+		8111336E1F8E307B00604D22 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		811133701F8E30A400604D22 /* RankingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListViewModel.swift; sourceTree = "<group>"; };
+		811133721F8E30B100604D22 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		815165471F8E35D2001493FD /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		815165491F8E37AC001493FD /* NavigatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorType.swift; sourceTree = "<group>"; };
+		8151654E1F8E5981001493FD /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
+		AE959E954BB0939EE7108221 /* Pods-ZigZagTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestUITests/Pods-ZigZagTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B058F52E43DA72D2CC7D2CB9 /* Pods-ZigZagTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTest/Pods-ZigZagTest.debug.xcconfig"; sourceTree = "<group>"; };
+		E8A1F6BDAFF9400A1D1F1D78 /* Pods-ZigZagTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestTests/Pods-ZigZagTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F544C0FEA2375DF12657821D /* Pods_ZigZagTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigZagTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88567426DA2770CCB47F946 /* Pods_ZigZagTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DFF25016B95C92E11AD9A73 /* Pods_ZigZagTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +98,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DB43ED89114F2AA429A5697 /* Pods_ZigZagTestUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18F79EC2F2E4D8B83E89A672 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B058F52E43DA72D2CC7D2CB9 /* Pods-ZigZagTest.debug.xcconfig */,
+				1D748AC045E52126A635E18F /* Pods-ZigZagTest.release.xcconfig */,
+				E8A1F6BDAFF9400A1D1F1D78 /* Pods-ZigZagTestTests.debug.xcconfig */,
+				22A019C1BBAC7B1239E30BC9 /* Pods-ZigZagTestTests.release.xcconfig */,
+				AE959E954BB0939EE7108221 /* Pods-ZigZagTestUITests.debug.xcconfig */,
+				58F5B1FC7725BCCAC39692A1 /* Pods-ZigZagTestUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		25C3F2D439C78925A68D5158 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43BC97858FCC51CC974F9BBF /* Pods_ZigZagTest.framework */,
+				F544C0FEA2375DF12657821D /* Pods_ZigZagTestTests.framework */,
+				5C6071B82465856636B0F27F /* Pods_ZigZagTestUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		811133251F8E19BC00604D22 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +135,8 @@
 				811133481F8E19BC00604D22 /* ZigZagTestTests */,
 				811133531F8E19BD00604D22 /* ZigZagTestUITests */,
 				8111332F1F8E19BC00604D22 /* Products */,
+				18F79EC2F2E4D8B83E89A672 /* Pods */,
+				25C3F2D439C78925A68D5158 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +153,18 @@
 		811133301F8E19BC00604D22 /* ZigZagTest */ = {
 			isa = PBXGroup;
 			children = (
+				8151654D1F8E5940001493FD /* Util */,
+				811133671F8E2D5300604D22 /* Service */,
+				811133661F8E2D4600604D22 /* Resource */,
+				811133651F8E2D2D00604D22 /* Model */,
+				811133641F8E2D2800604D22 /* View */,
+				811133631F8E2D1F00604D22 /* Controller */,
+				811133621F8E2CF500604D22 /* Navigation */,
 				811133311F8E19BC00604D22 /* AppDelegate.swift */,
-				811133331F8E19BC00604D22 /* ViewController.swift */,
 				811133351F8E19BC00604D22 /* Main.storyboard */,
 				8111333B1F8E19BC00604D22 /* Assets.xcassets */,
 				8111333D1F8E19BC00604D22 /* LaunchScreen.storyboard */,
 				811133401F8E19BC00604D22 /* Info.plist */,
-				811133381F8E19BC00604D22 /* ZigZagTest.xcdatamodeld */,
 			);
 			path = ZigZagTest;
 			sourceTree = "<group>";
@@ -128,6 +187,72 @@
 			path = ZigZagTestUITests;
 			sourceTree = "<group>";
 		};
+		811133621F8E2CF500604D22 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				811133681F8E2E6100604D22 /* Stage.swift */,
+				8111336A1F8E2E7900604D22 /* Navigator.swift */,
+				815165491F8E37AC001493FD /* NavigatorType.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		811133631F8E2D1F00604D22 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				811133701F8E30A400604D22 /* RankingListViewModel.swift */,
+				8111336C1F8E306300604D22 /* RankingListViewController.swift */,
+				811133721F8E30B100604D22 /* FilterViewModel.swift */,
+				8111336E1F8E307B00604D22 /* FilterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		811133641F8E2D2800604D22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		811133651F8E2D2D00604D22 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		811133661F8E2D4600604D22 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		811133671F8E2D5300604D22 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8151654D1F8E5940001493FD /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				815165501F8E7AD2001493FD /* Protocol */,
+				815165471F8E35D2001493FD /* BaseViewModel.swift */,
+				8151654E1F8E5981001493FD /* ViewModelBindable.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		815165501F8E7AD2001493FD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +260,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 811133591F8E19BD00604D22 /* Build configuration list for PBXNativeTarget "ZigZagTest" */;
 			buildPhases = (
+				D5A88E43AE2237668DC3D3C4 /* [CP] Check Pods Manifest.lock */,
 				8111332A1F8E19BC00604D22 /* Sources */,
 				8111332B1F8E19BC00604D22 /* Frameworks */,
 				8111332C1F8E19BC00604D22 /* Resources */,
+				D35C90137D659067EAC90E0E /* [CP] Embed Pods Frameworks */,
+				38390B1F1786BCEC9687923C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +280,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8111335C1F8E19BD00604D22 /* Build configuration list for PBXNativeTarget "ZigZagTestTests" */;
 			buildPhases = (
+				2AF509F6B718FF2CBAE9F244 /* [CP] Check Pods Manifest.lock */,
 				811133411F8E19BC00604D22 /* Sources */,
 				811133421F8E19BC00604D22 /* Frameworks */,
 				811133431F8E19BC00604D22 /* Resources */,
+				8206561C12E6869C6E3E92A7 /* [CP] Embed Pods Frameworks */,
+				ACFD9AD4CDE0AA4D07DCFEB9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +301,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8111335F1F8E19BD00604D22 /* Build configuration list for PBXNativeTarget "ZigZagTestUITests" */;
 			buildPhases = (
+				B93BC0B82B6B5BE1146830EE /* [CP] Check Pods Manifest.lock */,
 				8111334C1F8E19BC00604D22 /* Sources */,
 				8111334D1F8E19BC00604D22 /* Frameworks */,
 				8111334E1F8E19BC00604D22 /* Resources */,
+				1853F19CF9A25519BC784BA0 /* [CP] Embed Pods Frameworks */,
+				750F3FF63BCE776380E41DF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,14 +391,159 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1853F19CF9A25519BC784BA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZigZagTestUITests/Pods-ZigZagTestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AF509F6B718FF2CBAE9F244 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		38390B1F1786BCEC9687923C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZigZagTest/Pods-ZigZagTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		750F3FF63BCE776380E41DF9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZigZagTestUITests/Pods-ZigZagTestUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8206561C12E6869C6E3E92A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZigZagTestTests/Pods-ZigZagTestTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACFD9AD4CDE0AA4D07DCFEB9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZigZagTestTests/Pods-ZigZagTestTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B93BC0B82B6B5BE1146830EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D35C90137D659067EAC90E0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZigZagTest/Pods-ZigZagTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5A88E43AE2237668DC3D3C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8111332A1F8E19BC00604D22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				811133341F8E19BC00604D22 /* ViewController.swift in Sources */,
-				8111333A1F8E19BC00604D22 /* ZigZagTest.xcdatamodeld in Sources */,
+				8151654F1F8E5981001493FD /* ViewModelBindable.swift in Sources */,
+				811133731F8E30B100604D22 /* FilterViewModel.swift in Sources */,
+				811133691F8E2E6100604D22 /* Stage.swift in Sources */,
 				811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */,
+				8111336B1F8E2E7900604D22 /* Navigator.swift in Sources */,
+				811133711F8E30A400604D22 /* RankingListViewModel.swift in Sources */,
+				8151654A1F8E37AC001493FD /* NavigatorType.swift in Sources */,
+				815165481F8E35D2001493FD /* BaseViewModel.swift in Sources */,
+				8111336D1F8E306300604D22 /* RankingListViewController.swift in Sources */,
+				8111336F1F8E307B00604D22 /* FilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,36 +707,41 @@
 		};
 		8111335A1F8E19BD00604D22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B058F52E43DA72D2CC7D2CB9 /* Pods-ZigZagTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R2ESGSL5P9;
 				INFOPLIST_FILE = ZigZagTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hPark.ZigZagTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		8111335B1F8E19BD00604D22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D748AC045E52126A635E18F /* Pods-ZigZagTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R2ESGSL5P9;
 				INFOPLIST_FILE = ZigZagTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hPark.ZigZagTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		8111335D1F8E19BD00604D22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8A1F6BDAFF9400A1D1F1D78 /* Pods-ZigZagTestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +759,7 @@
 		};
 		8111335E1F8E19BD00604D22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22A019C1BBAC7B1239E30BC9 /* Pods-ZigZagTestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +777,7 @@
 		};
 		811133601F8E19BD00604D22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE959E954BB0939EE7108221 /* Pods-ZigZagTestUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +794,7 @@
 		};
 		811133611F8E19BD00604D22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58F5B1FC7725BCCAC39692A1 /* Pods-ZigZagTestUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -562,19 +849,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		811133381F8E19BC00604D22 /* ZigZagTest.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				811133391F8E19BC00604D22 /* ZigZagTest.xcdatamodel */,
-			);
-			currentVersion = 811133391F8E19BC00604D22 /* ZigZagTest.xcdatamodel */;
-			path = ZigZagTest.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 811133261F8E19BC00604D22 /* Project object */;
 }

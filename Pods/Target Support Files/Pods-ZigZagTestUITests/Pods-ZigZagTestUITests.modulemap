@@ -1,0 +1,6 @@
+framework module Pods_ZigZagTestUITests {
+  umbrella header "Pods-ZigZagTestUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
