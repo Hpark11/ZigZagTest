@@ -20,4 +20,6 @@ struct FilterViewModel: BaseViewModel {
     onCancel = CocoaAction { navigator.revert(animated: true) }
   }
   
+  
+  
 }

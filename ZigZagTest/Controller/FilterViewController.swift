@@ -15,10 +15,9 @@ class FilterViewController: UIViewController, ViewModelBindable {
   var viewModel: FilterViewModel!
   
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
   }
 
-    
   func bind() {
     cancelButton.rx.action = viewModel.onCancel
   }

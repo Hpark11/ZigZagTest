@@ -10,7 +10,11 @@ import UIKit
 
 class FilterStyleTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  let colForRow: Int = 4
+  
+  @IBOutlet weak var mainStackView: UIStackView!
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

@@ -8,23 +8,35 @@
 
 import UIKit
 
-class FilterAgeTableViewCell: UITableViewCell {
+class FilterAgeTableViewCell: BaseTableViewCell {
 
+  let colForRow: Int = 3
+  
   @IBOutlet weak var mainStackView: UIStackView!
   
+  lazy var subStackViews: [UIStackView] = {
+    var stackViews: [UIStackView] = []
+    
+    Constants.ages.enumerated().forEach { offset, value in
+      let index = offset % Constants.ages.count
+      if index == 0 { stackViews.append(UIStackView()) }
+      let button = RoundedButton(value, color: UIColor.black)
+      stackViews.last!.insertArrangedSubview(button, at: index)
+    }
   
-  
+    return stackViews
+  }()
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
-    Constants.Ages.count
+    
+    for (i, sub) in subStackViews.enumerated() {
+      mainStackView.insertArrangedSubview(sub, at: i)
+    }
   }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    // Configure the view for the selected state
+  }
 }

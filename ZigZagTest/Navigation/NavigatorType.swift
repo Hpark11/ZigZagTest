@@ -11,7 +11,7 @@ import RxSwift
 
 protocol NavigatorType {
   init(window: UIWindow)
-  func navigate(to scene: Stage, type: Stage.NavigationType) -> Observable<Void>
+  func navigate(to stage: Stage, type: Stage.NavigationType) -> Observable<Void>
   func revert(animated: Bool) -> Observable<Void>
 }
 

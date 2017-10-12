@@ -20,7 +20,7 @@ class RankingListViewController: UIViewController, ViewModelBindable {
       // Do any additional setup after loading the view.
   }
   
-  func bind() {
+ func bind() {
     filterButton.rx.action = viewModel.filterAction
   }
     

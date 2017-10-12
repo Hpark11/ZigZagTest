@@ -31,27 +31,22 @@ enum Stage {
 }
 
 extension Stage {
-
-//  private func bindViewModel<VC: UIViewController>(viewModel: BaseViewModel, storyboard: UIStoryboard) {
-//    let nc = storyboard.instantiateViewController(withIdentifier: viewModel.identifier) as! UINavigationController
-//    var vc = nc.viewControllers.first as! VC
-//    vc.bindViewModel(to: viewModel)
-//  }
-  
-  func viewController() -> UIViewController {
+  private func getVC(id: String) -> UIViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
+    let nc = storyboard.instantiateViewController(withIdentifier: id) as! UINavigationController
+    return nc.viewControllers.first!
+  }
+
+  func viewController() -> UIViewController {
     switch self {
     case .ranking(let viewModel):
-      let nc = storyboard.instantiateViewController(withIdentifier: viewModel.identifier) as! UINavigationController
-      var vc = nc.viewControllers.first as! RankingListViewController
+      var vc = getVC(id: viewModel.identifier) as! RankingListViewController
       vc.bind(to: viewModel)
-      return nc
+      return vc.navigationController!
     case .filter(let viewModel):
-      let nc = storyboard.instantiateViewController(withIdentifier: viewModel.identifier) as! UINavigationController
-      var vc = nc.viewControllers.first as! FilterViewController
+      var vc = getVC(id: viewModel.identifier) as! FilterViewController
       vc.bind(to: viewModel)
-      return nc
+      return vc.navigationController!
     }
   }
 }
