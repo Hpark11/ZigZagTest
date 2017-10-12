@@ -7,8 +7,27 @@
 //
 
 import Foundation
+import RxDataSources
 
 struct Constants {
+  
+  enum FilterType: Int, IdentifiableType {
+    typealias Identity = Int
+    case age = 4
+    case style = 3
+    
+    var identity: Int {
+      return 0
+    }
+  }
+  
+  static func getFilterElements(type: FilterType) -> [String] {
+    switch type {
+    case .age: return ages
+    case .style: return styles
+    }
+  }
+  
   static let ages: [String] = [
     "10대",
     "20대 초반",

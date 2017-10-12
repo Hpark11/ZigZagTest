@@ -24,7 +24,8 @@ class RoundedButton: UIButton {
     self.layer.borderColor = self.color.cgColor
     self.layer.borderWidth = 1.0
     self.layer.cornerRadius = 8
-    self.setTitle(title, for: .normal)
+    self.titleLabel?.textColor = self.color
+    self.titleLabel?.text = title
   }
   
   public func setSelectedState(_ b: Bool) {
