@@ -69,14 +69,16 @@
         <!--쇼핑몰 필터-->
         <scene sceneID="ifc-mU-bvO">
             <objects>
-                <viewController id="T0w-Eh-J8r" customClass="FilterViewController" customModule="ZigZagTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="T0w-Eh-J8r" customClass="FilterViewController" customModule="ZigZagTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gHu-5s-CTF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2BO-au-r1q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="32" sectionFooterHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="2BO-au-r1q">
                                 <rect key="frame" x="0.0" y="64" width="375" height="549"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyq-hd-gFy">
                                 <rect key="frame" x="0.0" y="613" width="375" height="54"/>
@@ -92,13 +94,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2BO-au-r1q" firstAttribute="top" secondItem="FyE-SX-kgc" secondAttribute="top" id="9tK-5z-Ez9"/>
+                            <constraint firstItem="2BO-au-r1q" firstAttribute="trailing" secondItem="FyE-SX-kgc" secondAttribute="trailing" id="789-8v-HNd"/>
                             <constraint firstItem="Zyq-hd-gFy" firstAttribute="leading" secondItem="FyE-SX-kgc" secondAttribute="leading" id="EH0-wl-w54"/>
-                            <constraint firstItem="FyE-SX-kgc" firstAttribute="trailing" secondItem="2BO-au-r1q" secondAttribute="trailing" id="TCa-K0-vhJ"/>
+                            <constraint firstItem="2BO-au-r1q" firstAttribute="top" secondItem="FyE-SX-kgc" secondAttribute="top" id="TAa-Ak-g5c"/>
                             <constraint firstItem="Zyq-hd-gFy" firstAttribute="bottom" secondItem="FyE-SX-kgc" secondAttribute="bottom" id="YU3-Sp-h2s"/>
-                            <constraint firstItem="Zyq-hd-gFy" firstAttribute="top" secondItem="2BO-au-r1q" secondAttribute="bottom" id="eed-2N-wz6"/>
+                            <constraint firstItem="2BO-au-r1q" firstAttribute="leading" secondItem="FyE-SX-kgc" secondAttribute="leading" id="fR6-xb-upF"/>
+                            <constraint firstItem="Zyq-hd-gFy" firstAttribute="top" secondItem="2BO-au-r1q" secondAttribute="bottom" id="fdH-J8-8h0"/>
                             <constraint firstItem="FyE-SX-kgc" firstAttribute="trailing" secondItem="Zyq-hd-gFy" secondAttribute="trailing" id="jrj-D7-nR3"/>
-                            <constraint firstItem="2BO-au-r1q" firstAttribute="leading" secondItem="FyE-SX-kgc" secondAttribute="leading" id="n32-a9-M1e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FyE-SX-kgc"/>
                     </view>
@@ -112,12 +114,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="Coz-dC-1YV" id="DLj-Du-oQt"/>
+                        <outlet property="confirmButton" destination="Zyq-hd-gFy" id="i1t-YZ-Laa"/>
                         <outlet property="filterTableView" destination="2BO-au-r1q" id="NFf-YC-k1B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBa-d5-bWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="853"/>
+            <point key="canvasLocation" x="1853.5999999999999" y="852.3238380809596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gNR-FB-TvI">

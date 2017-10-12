@@ -10,6 +10,11 @@ import UIKit
 
 class RoundedButton: UIButton {
   private var color: UIColor = .black
+  override var isSelected: Bool {
+    didSet {
+      setSelectedState(isSelected)
+    }
+  }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -24,17 +29,22 @@ class RoundedButton: UIButton {
     self.layer.borderColor = self.color.cgColor
     self.layer.borderWidth = 1.0
     self.layer.cornerRadius = 8
-    self.titleLabel?.textColor = self.color
-    self.titleLabel?.text = title
+    
+    self.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    self.titleLabel?.adjustsFontSizeToFitWidth = true
+    self.setTitle(title, for: .normal)
+    self.setTitleColor(self.color, for: .normal)
   }
   
-  public func setSelectedState(_ b: Bool) {
+  private func setSelectedState(_ b: Bool) {
     if b == true {
       self.backgroundColor = self.color
       self.tintColor = self.color
+      self.setTitleColor(.white, for: .normal)
     } else {
       self.backgroundColor = UIColor.white
       self.tintColor = UIColor.white
+      self.setTitleColor(self.color, for: .normal)
     }
   }
 }

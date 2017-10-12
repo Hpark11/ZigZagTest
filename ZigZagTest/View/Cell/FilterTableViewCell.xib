@@ -21,8 +21,11 @@
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="bvf-gc-UuM">
                         <rect key="frame" x="10" y="10" width="369" height="326.5"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="bvf-gc-UuM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="6Ma-OX-qQo"/>
                     <constraint firstAttribute="trailing" secondItem="bvf-gc-UuM" secondAttribute="trailing" constant="10" id="Icv-qh-UT1"/>

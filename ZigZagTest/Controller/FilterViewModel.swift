@@ -11,7 +11,7 @@ import RxSwift
 import RxDataSources
 import Action
 
-typealias FilterSection = AnimatableSectionModel<String, Constants.FilterType>
+typealias FilterSection = AnimatableSectionModel<String, Filter.Category>
 
 struct FilterViewModel: BaseViewModel {
   let identifier: String = "Filter"
@@ -28,6 +28,8 @@ struct FilterViewModel: BaseViewModel {
       return Disposables.create()
     }
   }
+  
+  
   
   init(navigator: NavigatorType) {
     self.navigator = navigator

@@ -12,12 +12,13 @@ import RxDataSources
 
 class FilterViewController: UIViewController, ViewModelBindable {
   
+  @IBOutlet weak var confirmButton: UIButton!
   @IBOutlet weak var cancelButton: UIBarButtonItem!
   @IBOutlet weak var filterTableView: UITableView!
   
   var viewModel: FilterViewModel!
   let disposeBag = DisposeBag()
-  let dataSource = RxTableViewSectionedReloadDataSource<FilterSection>()
+  let dataSource = RxTableViewSectionedAnimatedDataSource<FilterSection>()
   
   override func viewDidLoad() {
     super.viewDidLoad()

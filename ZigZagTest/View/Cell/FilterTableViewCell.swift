@@ -12,11 +12,11 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
 
   @IBOutlet weak var mainStackView: UIStackView!
   
-  lazy var subStackViews: ([String], Constants.FilterType) -> ([UIStackView]) = { queries, type in
+  lazy var subStackViews: (Filter.Category) -> ([UIStackView]) = { type in
     var stackViews: [UIStackView] = []
     let colForRow: Int = type.rawValue
     
-    queries.enumerated().forEach { offset, value in
+    Filter.list(type).enumerated().forEach { offset, value in
       let index = offset % colForRow
       if index == 0 {
         let stackView = UIStackView()
@@ -26,33 +26,25 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
         stackView.spacing = 4.0
         stackViews.append(stackView)
       }
-      let button = RoundedButton(value, color: UIColor.black)
+      let button = RoundedButton(value, color: Filter.keyColor(type))
       stackViews.last!.insertArrangedSubview(button, at: index)
     }
   
     return stackViews
   }
   
-  func configure(type: Constants.FilterType) {
-    var stackViews = [UIStackView]()
-    
-    if type == .age {
-      stackViews = subStackViews(Constants.ages, type)
-    } else {
-      stackViews = subStackViews(Constants.styles, type)
-    }
-    
+  func configure(type: Filter.Category) {
+    let stackViews = subStackViews(type)
     for (i, sub) in stackViews.enumerated() {
       mainStackView.insertArrangedSubview(sub, at: i)
     }
-  }
-  
-  override func awakeFromNib() {
-    
   }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
   
+  override func prepareForReuse() {
+    mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+  }
 }

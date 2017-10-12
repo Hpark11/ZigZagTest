@@ -6,12 +6,12 @@
 //  Copyright © 2017년 hPark. All rights reserved.
 //
 
-import Foundation
+import UIKit.UIColor
 import RxDataSources
 
-struct Constants {
+struct Filter {
   
-  enum FilterType: Int, IdentifiableType {
+  enum Category: Int, IdentifiableType {
     typealias Identity = Int
     case age = 4
     case style = 3
@@ -21,10 +21,17 @@ struct Constants {
     }
   }
   
-  static func getFilterElements(type: FilterType) -> [String] {
+  static func list(_ type: Category) -> [String] {
     switch type {
     case .age: return ages
     case .style: return styles
+    }
+  }
+  
+  static func keyColor(_ type: Category) -> UIColor {
+    switch type {
+    case .age: return .black
+    case .style: return .purple
     }
   }
   
