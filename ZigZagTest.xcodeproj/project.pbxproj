@@ -260,11 +260,9 @@
 		8151654D1F8E5940001493FD /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				817BFCB51F90EF8E00B9ABB0 /* Operator */,
 				815165511F8E8537001493FD /* Filter */,
 				815165501F8E7AD2001493FD /* Protocol */,
-				815165471F8E35D2001493FD /* BaseViewModel.swift */,
-				8151654E1F8E5981001493FD /* ViewModelBindable.swift */,
-				817BFCA91F8F163E00B9ABB0 /* AdditionalOperator.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -274,6 +272,8 @@
 			children = (
 				815165551F8E85CA001493FD /* Identifiable.swift */,
 				815165581F8E86D5001493FD /* NibLoadable.swift */,
+				8151654E1F8E5981001493FD /* ViewModelBindable.swift */,
+				815165471F8E35D2001493FD /* BaseViewModel.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -310,6 +310,14 @@
 				817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		817BFCB51F90EF8E00B9ABB0 /* Operator */ = {
+			isa = PBXGroup;
+			children = (
+				817BFCA91F8F163E00B9ABB0 /* AdditionalOperator.swift */,
+			);
+			path = Operator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

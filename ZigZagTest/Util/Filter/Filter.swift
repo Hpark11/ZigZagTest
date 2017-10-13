@@ -17,13 +17,8 @@ struct Filter {
     case age = "ages"
     case style = "styles"
     
-    var val: String {
-      return self.rawValue
-    }
-    
-    var identity: String {
-      return "filter"
-    }
+    var val: String { return self.rawValue }
+    var identity: String { return "filter" }
   }
   
   static func rows(_ type: Category) -> Int {

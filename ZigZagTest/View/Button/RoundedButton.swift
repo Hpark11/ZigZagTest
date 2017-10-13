@@ -9,13 +9,12 @@
 import UIKit
 
 class RoundedButton: UIButton {
-  private var isChecked: Bool?
-  private var color: UIColor = .black
-  override var isSelected: Bool {
+  private var isChecked: Bool = false {
     didSet {
       setSelectedState(isSelected)
     }
   }
+  private var color: UIColor = .black
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")

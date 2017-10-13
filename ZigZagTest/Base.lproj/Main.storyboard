@@ -116,6 +116,7 @@
                         <outlet property="cancelButton" destination="Coz-dC-1YV" id="DLj-Du-oQt"/>
                         <outlet property="confirmButton" destination="Zyq-hd-gFy" id="i1t-YZ-Laa"/>
                         <outlet property="filterTableView" destination="2BO-au-r1q" id="NFf-YC-k1B"/>
+                        <outlet property="initializeButton" destination="fkC-fN-5xX" id="6Wx-yo-2zQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBa-d5-bWz" userLabel="First Responder" sceneMemberID="firstResponder"/>

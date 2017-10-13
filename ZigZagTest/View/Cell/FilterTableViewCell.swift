@@ -21,7 +21,7 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
     var stackViews: [UIStackView] = []
     let colForRow: Int = Filter.rows(type)
     
-    Filter.list(type).enumerated().forEach { offset, value in
+    Filter.list(type).enumerated().forEach { offset, title in
       let index = offset % colForRow
       if index == 0 {
         let stackView = UIStackView()
@@ -31,14 +31,18 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
         stackView.spacing = 4.0
         stackViews.append(stackView)
       }
-      var button = RoundedButton(value, color: Filter.keyColor(type))
+      var button = RoundedButton(title, color: Filter.keyColor(type))
       
-      if type == .age {
-        button.rx.bind(to: action, input: (key: type, value: offset))
-      } else {
-        
+      let value: Any
+      switch type {
+      case .age: value = offset
+      case .style: value = title
       }
       
+      button.rx.bind(to: action) { btn in
+        print(btn)
+        return (key: type, value: value)
+      }
       stackViews.last!.insertArrangedSubview(button, at: index)
     }
   

@@ -31,7 +31,8 @@ class FilterSet {
   }
   
   public var exposed: [String: Any] {
-    return [Key.age.val: ages, Key.style.val: Array(styles)]
+    return [Key.age.val: ages,
+            Key.style.val: Array(styles)]
   }
   
   public func setFilter(_ s: Setter) {

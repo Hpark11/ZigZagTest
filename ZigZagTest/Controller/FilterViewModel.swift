@@ -14,12 +14,12 @@ import Action
 typealias Setter = (key: Filter.Category, value: Any)
 typealias FilterSection = AnimatableSectionModel<String, Filter.Category>
 
-struct FilterViewModel: BaseViewModel {
+class FilterViewModel: BaseViewModel {
   let identifier: String = "Filter"
   let navigator: NavigatorType
   let cancelAction: CocoaAction
   
-  let filterSet: FilterSet
+  var filterSet: FilterSet
   
   var items: Observable<[FilterSection]> {
     return Observable<[FilterSection]>.create { observer in
@@ -39,18 +39,10 @@ struct FilterViewModel: BaseViewModel {
     }
   }
   
-  func onSelect() -> Action<Setter, Void> {
-    return Action { setter in
-      self.filterSet.setFilter(setter)
-      return Observable.just()
-    }
+  lazy var selectAction = Action<Setter, Void> { setter in
+    self.filterSet.setFilter(setter)
+    return .just()
   }
-  
-//  func onSelect() -> CocoaAction {
-//    return CocoaAction {
-//
-//    }
-//  }
 
   init(navigator: NavigatorType) {
     self.navigator = navigator

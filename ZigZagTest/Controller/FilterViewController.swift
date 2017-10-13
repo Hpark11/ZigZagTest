@@ -12,6 +12,7 @@ import RxDataSources
 
 class FilterViewController: UIViewController, ViewModelBindable {
   
+  @IBOutlet weak var initializeButton: UIBarButtonItem!
   @IBOutlet weak var confirmButton: UIButton!
   @IBOutlet weak var cancelButton: UIBarButtonItem!
   @IBOutlet weak var filterTableView: UITableView!
@@ -38,6 +39,13 @@ class FilterViewController: UIViewController, ViewModelBindable {
   func bind() {
     cancelButton.rx.action = viewModel.cancelAction
     confirmButton.rx.action = viewModel.onConfirm()
+    //let action = viewModel.onSelect()
+    //action.enabled.bind(to: initializeButton.rx.isEnabled)
+    
+//    initializeButton.rx.bind(to: viewModel.selectAction) { _ in
+//      return (key: Filter.Category.age, value: 5)
+//    }
+  
   }
 
   private func configure() {
@@ -47,7 +55,7 @@ class FilterViewController: UIViewController, ViewModelBindable {
     
     dataSource.configureCell = { [weak self] data, tableView, indexPath, type in
       let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as FilterTableViewCell
-      if let base = self { cell.configure(type: type, update: base.viewModel.onSelect()) }
+      if let base = self { cell.configure(type: type, update: base.viewModel.selectAction) }
       return cell
     }
   }
