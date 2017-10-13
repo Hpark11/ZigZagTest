@@ -27,6 +27,7 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
         stackViews.append(stackView)
       }
       let button = RoundedButton(value, color: Filter.keyColor(type))
+      
       stackViews.last!.insertArrangedSubview(button, at: index)
     }
   
@@ -46,5 +47,6 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
   
   override func prepareForReuse() {
     mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    super.prepareForReuse()
   }
 }

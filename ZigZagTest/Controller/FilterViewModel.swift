@@ -11,12 +11,15 @@ import RxSwift
 import RxDataSources
 import Action
 
+//typealias Filter
 typealias FilterSection = AnimatableSectionModel<String, Filter.Category>
 
 struct FilterViewModel: BaseViewModel {
   let identifier: String = "Filter"
   let navigator: NavigatorType
-  let onCancel: CocoaAction
+  let cancelAction: CocoaAction
+  
+  var filterSet: FilterSet
   
   var items: Observable<[FilterSection]> {
     return Observable<[FilterSection]>.create { observer in
@@ -29,10 +32,34 @@ struct FilterViewModel: BaseViewModel {
     }
   }
   
+  func onConfirm() -> CocoaAction {
+    return CocoaAction {
+      UserDefaults.standard.set(self.filterSet.exposed, forKey: FilterSet.Key.all.rawValue)
+      return self.navigator.revert(animated: true)
+    }
+  }
+  
+//  func onSelect() -> Action<FilterSet.Key, Void> {
+//    return Action { key in
+//      self.filterSet.set(key, value: <#T##Any#>)
+//    }
+//  }
   
   
+//  func onSelect() -> CocoaAction {
+//    return CocoaAction {
+//
+//    }
+//  }
+
   init(navigator: NavigatorType) {
     self.navigator = navigator
-    onCancel = CocoaAction { navigator.revert(animated: true) }
+    cancelAction = CocoaAction { navigator.revert(animated: true) }
+    if let data = UserDefaults.standard.object(forKey: FilterSet.Key.all.rawValue) as? [String: Any],
+      let set = FilterSet(data: data) {
+      self.filterSet = set
+    } else {
+      self.filterSet = FilterSet()
+    }
   }
 }

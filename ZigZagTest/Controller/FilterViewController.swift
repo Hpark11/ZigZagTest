@@ -36,7 +36,8 @@ class FilterViewController: UIViewController, ViewModelBindable {
   }
 
   func bind() {
-    cancelButton.rx.action = viewModel.onCancel
+    cancelButton.rx.action = viewModel.cancelAction
+    confirmButton.rx.action = viewModel.onConfirm()
   }
 
   private func configure() {

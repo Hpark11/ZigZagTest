@@ -25,4 +25,6 @@ struct RankingListViewModel: BaseViewModel {
     }
   }(self)
   
+  
+  
 }
