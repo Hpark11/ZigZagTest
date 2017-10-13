@@ -10,14 +10,26 @@ import UIKit.UIColor
 import RxDataSources
 
 struct Filter {
+  static let identifier = "filter"
   
-  enum Category: Int, IdentifiableType {
-    typealias Identity = Int
-    case age = 4
-    case style = 3
+  enum Category: String, IdentifiableType {
+    typealias Identity = String
+    case age = "ages"
+    case style = "styles"
     
-    var identity: Int {
-      return 0
+    var val: String {
+      return self.rawValue
+    }
+    
+    var identity: String {
+      return "filter"
+    }
+  }
+  
+  static func rows(_ type: Category) -> Int {
+    switch type {
+    case .age: return 4
+    case .style: return 3
     }
   }
   

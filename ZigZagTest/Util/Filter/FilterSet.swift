@@ -8,16 +8,8 @@
 
 import Foundation
 
-struct FilterSet {
-  enum Key: String {
-    case all = "filter"
-    case ages = "ages"
-    case styles = "styles"
-    
-    var val: String {
-      return self.rawValue
-    }
-  }
+class FilterSet {
+  typealias Key = Filter.Category
   
   private var ages: [Int]
   private var styles: Set<String>
@@ -27,39 +19,37 @@ struct FilterSet {
     self.styles = styles
   }
   
-  init?(data: [String: Any]) {
-    guard let ages = data[Key.ages.val] as? [Int],
-      let styles = data[Key.styles.val] as? [String] else { return nil }
+  init() {
+    self.ages = Array(repeating: 0, count: Filter.ages.count)
+    self.styles = []
+  }
+  
+  convenience init?(data: [String: Any]) {
+    guard let ages = data[Key.age.val] as? [Int],
+      let styles = data[Key.style.val] as? [String] else { return nil }
     self.init(ages: ages, styles: Set(styles))
   }
   
-  init() {
-    self.ages = Array(repeating: 0, count: Filter.ages.count)
-    self.styles = ["안녕하세요"]
-  }
-  
   public var exposed: [String: Any] {
-    return [Key.ages.val: ages, Key.styles.val: Array(styles)]
+    return [Key.age.val: ages, Key.style.val: Array(styles)]
   }
   
-  public func set(_ key: Key, value: Any) {
-    switch key {
-    case .ages: setAgeFilter(value as! Int)
-    case .styles: setStyleFilter(value as! String)
-    default: break
+  public func setFilter(_ s: Setter) {
+    switch s.key {
+    case .age: age(s.value as! Int)
+    case .style: style(s.value as! String)
     }
   }
   
-  public mutating func setAgeFilter(_ index: Int) {
+  private func age(_ index: Int) {
     ages[index] = ages[index] == 1 ? 0 : 1
   }
   
-  public mutating func setStyleFilter(_ style: String) {
+  private func style(_ style: String) {
     if styles.contains(style) {
       styles.insert(style)
     } else {
       styles.remove(style)
     }
   }
-  
 }

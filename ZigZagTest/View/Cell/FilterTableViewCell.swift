@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Action
+import RxSwift
+import RxCocoa
 
 class FilterTableViewCell: UITableViewCell, NibLoadable {
 
   @IBOutlet weak var mainStackView: UIStackView!
   
-  lazy var subStackViews: (Filter.Category) -> ([UIStackView]) = { type in
+  var disposedBag = DisposeBag()
+  
+  lazy var subStackViews: (Filter.Category, Action<Setter, Void>) -> ([UIStackView]) = { [weak self] type, action in
     var stackViews: [UIStackView] = []
-    let colForRow: Int = type.rawValue
+    let colForRow: Int = Filter.rows(type)
     
     Filter.list(type).enumerated().forEach { offset, value in
       let index = offset % colForRow
@@ -26,7 +31,13 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
         stackView.spacing = 4.0
         stackViews.append(stackView)
       }
-      let button = RoundedButton(value, color: Filter.keyColor(type))
+      var button = RoundedButton(value, color: Filter.keyColor(type))
+      
+      if type == .age {
+        button.rx.bind(to: action, input: (key: type, value: offset))
+      } else {
+        
+      }
       
       stackViews.last!.insertArrangedSubview(button, at: index)
     }
@@ -34,8 +45,8 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
     return stackViews
   }
   
-  func configure(type: Filter.Category) {
-    let stackViews = subStackViews(type)
+  func configure(type: Filter.Category, update: Action<Setter, Void>) {
+    let stackViews = subStackViews(type, update)
     for (i, sub) in stackViews.enumerated() {
       mainStackView.insertArrangedSubview(sub, at: i)
     }
@@ -47,6 +58,7 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
   
   override func prepareForReuse() {
     mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    disposedBag = DisposeBag()
     super.prepareForReuse()
   }
 }

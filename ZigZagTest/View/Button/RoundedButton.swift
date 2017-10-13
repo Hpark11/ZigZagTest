@@ -9,6 +9,7 @@
 import UIKit
 
 class RoundedButton: UIButton {
+  private var isChecked: Bool?
   private var color: UIColor = .black
   override var isSelected: Bool {
     didSet {
@@ -34,6 +35,7 @@ class RoundedButton: UIButton {
     self.titleLabel?.adjustsFontSizeToFitWidth = true
     self.setTitle(title, for: .normal)
     self.setTitleColor(self.color, for: .normal)
+    self.isUserInteractionEnabled = true
   }
   
   private func setSelectedState(_ b: Bool) {
