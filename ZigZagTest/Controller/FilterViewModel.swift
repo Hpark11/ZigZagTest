@@ -19,7 +19,7 @@ class FilterViewModel: BaseViewModel {
   let navigator: NavigatorType
   let cancelAction: CocoaAction
   
-  var filterSet: FilterSet
+  let filterSet: FilterSet
   
   var items: Observable<[FilterSection]> {
     return Observable<[FilterSection]>.create { observer in
@@ -41,6 +41,11 @@ class FilterViewModel: BaseViewModel {
   
   lazy var selectAction = Action<Setter, Void> { setter in
     self.filterSet.setFilter(setter)
+    return .just()
+  }
+  
+  lazy var initializeAction = CocoaAction {
+    self.filterSet.clear()
     return .just()
   }
 

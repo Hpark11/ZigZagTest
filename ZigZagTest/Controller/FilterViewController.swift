@@ -39,13 +39,9 @@ class FilterViewController: UIViewController, ViewModelBindable {
   func bind() {
     cancelButton.rx.action = viewModel.cancelAction
     confirmButton.rx.action = viewModel.onConfirm()
-    //let action = viewModel.onSelect()
-    //action.enabled.bind(to: initializeButton.rx.isEnabled)
-    
-//    initializeButton.rx.bind(to: viewModel.selectAction) { _ in
-//      return (key: Filter.Category.age, value: 5)
-//    }
-  
+    initializeButton.rx.bind(to: viewModel.initializeAction) { [weak self] _ in
+      if let base = self { base.filterTableView.reloadData() }
+    }
   }
 
   private func configure() {
@@ -55,7 +51,7 @@ class FilterViewController: UIViewController, ViewModelBindable {
     
     dataSource.configureCell = { [weak self] data, tableView, indexPath, type in
       let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as FilterTableViewCell
-      if let base = self { cell.configure(type: type, update: base.viewModel.selectAction) }
+      if let base = self { cell.configure(type: type, update: base.viewModel.selectAction, set: base.viewModel.filterSet.exposed) }
       return cell
     }
   }

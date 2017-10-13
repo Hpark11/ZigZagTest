@@ -35,6 +35,11 @@ class FilterSet {
             Key.style.val: Array(styles)]
   }
   
+  public func clear() {
+    ages = ages.map { _ in 0 }
+    styles = []
+  }
+  
   public func setFilter(_ s: Setter) {
     switch s.key {
     case .age: age(s.value as! Int)
@@ -48,9 +53,9 @@ class FilterSet {
   
   private func style(_ style: String) {
     if styles.contains(style) {
-      styles.insert(style)
-    } else {
       styles.remove(style)
+    } else {
+      styles.insert(style)
     }
   }
 }

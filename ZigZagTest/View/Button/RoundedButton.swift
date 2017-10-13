@@ -9,9 +9,9 @@
 import UIKit
 
 class RoundedButton: UIButton {
-  private var isChecked: Bool = false {
+  public var isChecked: Bool = false {
     didSet {
-      setSelectedState(isSelected)
+      setSelectedState(isChecked)
     }
   }
   private var color: UIColor = .black
