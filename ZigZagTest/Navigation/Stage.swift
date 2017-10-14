@@ -32,7 +32,7 @@ enum Stage {
 
 extension Stage {
   private func getVC(id: String) -> UIViewController {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let storyboard = UIStoryboard(name: "ZigZag", bundle: nil)
     let nc = storyboard.instantiateViewController(withIdentifier: id) as! UINavigationController
     return nc.viewControllers.first!
   }

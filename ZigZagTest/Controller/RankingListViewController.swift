@@ -15,8 +15,12 @@ class RankingListViewController: UIViewController, ViewModelBindable {
   var viewModel: RankingListViewModel!
   
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
       // Do any additional setup after loading the view.
+    
+    let path = Bundle.main.path(forResource: "shopList", ofType: "json", inDirectory: "zigzagRes")
+    print(path)
+    
   }
   
   func bind() {
