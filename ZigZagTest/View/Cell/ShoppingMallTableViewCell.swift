@@ -13,7 +13,7 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   @IBOutlet weak var rankLabel: UILabel!
   @IBOutlet weak var shopImageView: DownloadableImageView!
   @IBOutlet weak var shopNameLabel: UILabel!
-  @IBOutlet weak var ageLabel: UILabel!
+  @IBOutlet weak var ageLabel: PaddedLabel!
   @IBOutlet weak var styleStackView: UIStackView!
   
   required init?(coder aDecoder: NSCoder) {
@@ -24,6 +24,7 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
     rankLabel.text = "\(index + 1)"
     shopNameLabel.text = shop.name
     ageLabel.text = Filter.getRepresentativeAgesData(shop.age)
+    ageLabel.frame.size.width = ageLabel.frame.width + 8
     
     styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
       guard let label = views as? UILabel, shop.style.count > offset else { return }
@@ -43,6 +44,10 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
     shopImageView.layer.masksToBounds = false
     shopImageView.layer.cornerRadius = shopImageView.frame.height / 2
     shopImageView.clipsToBounds = true
+    
+    ageLabel.layer.borderColor = UIColor.lightGray.cgColor
+    ageLabel.layer.cornerRadius = 4
+    ageLabel.layer.borderWidth = 0.4
   }
   
   override func prepareForReuse() {

@@ -33,6 +33,7 @@
 		8151655C1F8E8796001493FD /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151655A1F8E8796001493FD /* FilterTableViewCell.swift */; };
 		8151655D1F8E8796001493FD /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8151655B1F8E8796001493FD /* FilterTableViewCell.xib */; };
 		815165631F8E8E15001493FD /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165621F8E8E15001493FD /* Filter.swift */; };
+		8167653B1F926ADD006DD5EE /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167653A1F926ADD006DD5EE /* PaddedLabel.swift */; };
 		817BFCAA1F8F163E00B9ABB0 /* AdditionalOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCA91F8F163E00B9ABB0 /* AdditionalOperator.swift */; };
 		817BFCB01F8F35EB00B9ABB0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */; };
 		817BFCB41F8FCAD300B9ABB0 /* FilterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCB31F8FCAD300B9ABB0 /* FilterSet.swift */; };
@@ -96,6 +97,7 @@
 		8151655A1F8E8796001493FD /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		8151655B1F8E8796001493FD /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
 		815165621F8E8E15001493FD /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		8167653A1F926ADD006DD5EE /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		817BFCA91F8F163E00B9ABB0 /* AdditionalOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalOperator.swift; sourceTree = "<group>"; };
 		817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		817BFCB31F8FCAD300B9ABB0 /* FilterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSet.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		811133641F8E2D2800604D22 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				816765391F926AC2006DD5EE /* Label */,
 				813F4C9E1F91FFE300050413 /* ImageView */,
 				817BFCB11F8F35F200B9ABB0 /* Button */,
 				815165571F8E868F001493FD /* Cell */,
@@ -327,6 +330,14 @@
 				813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		816765391F926AC2006DD5EE /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				8167653A1F926ADD006DD5EE /* PaddedLabel.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		817BFCB11F8F35F200B9ABB0 /* Button */ = {
@@ -639,6 +650,7 @@
 				811133731F8E30B100604D22 /* FilterViewModel.swift in Sources */,
 				811133691F8E2E6100604D22 /* Stage.swift in Sources */,
 				813F4C9A1F91B80900050413 /* ShoppingMallTableViewCell.swift in Sources */,
+				8167653B1F926ADD006DD5EE /* PaddedLabel.swift in Sources */,
 				811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */,
 				817BFCB41F8FCAD300B9ABB0 /* FilterSet.swift in Sources */,
 				815165631F8E8E15001493FD /* Filter.swift in Sources */,
