@@ -12,6 +12,7 @@ import RxCocoa
 
 struct APIService {
   static let filename: String = "shopList"
+  static let subject = BehaviorSubject<[String: Any]>(value: [:])
   
   enum ServiceError: Error {
     case invalidPath(String)
@@ -20,7 +21,7 @@ struct APIService {
   }
   
   static var week: Observable<String> = {
-    return APIService.request()
+    return APIService.subject.asObservable()
       .map { data in
         let week = data["week"] as? String ?? ""
         return week
@@ -28,33 +29,28 @@ struct APIService {
   }()
   
   static var shoppingMalls: Observable<[ShoppingMall]> = {
-    return APIService.request()
+    return APIService.subject.asObservable()
       .map { data in
         let malls = data["list"] as? [[String: Any]] ?? []
-        return malls.flatMap(ShoppingMall.init).sorted { $0.score < $1.score }
+        return malls.flatMap(ShoppingMall.init)
       }.shareReplay(1)
   }()
   
-  private static func request() -> Observable<[String: Any]> {
-    return Observable.create { observer in
+  static func request() -> [String: Any] {
+    do {
       guard let path = Bundle.main.path(forResource: filename, ofType: "json", inDirectory: "zigzagRes") else {
-        observer.onError(ServiceError.invalidPath("zigzagRes/\(filename).json"))
-        return Disposables.create()
+        throw ServiceError.invalidPath("There is no Path to find \(filename).json")
       }
       
-      do {
-        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-        guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
-          let result = jsonObject as? [String: Any] else {
-            throw ServiceError.invalidJSON(filename)
-        }
-        
-        observer.onNext(result)
-        observer.onCompleted()
-      } catch {
-        observer.onError(ServiceError.invalidData(filename))
+      let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+      guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
+        let result = jsonObject as? [String: Any] else {
+          throw ServiceError.invalidJSON(filename)
       }
-      return Disposables.create()
+      return result
+    } catch {
+      fatalError(error.localizedDescription)
     }
+    return [:]
   }
 }

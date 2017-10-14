@@ -18,7 +18,7 @@ class FilterViewModel: BaseViewModel {
   let identifier: String = "Filter"
   let navigator: NavigatorType
   let cancelAction: CocoaAction
-  
+  let refresh: () -> (Void)
   let filterSet: FilterSet
   
   var items: Observable<[FilterSection]> {
@@ -32,13 +32,6 @@ class FilterViewModel: BaseViewModel {
     }
   }
   
-  func onConfirm() -> CocoaAction {
-    return CocoaAction { [unowned self] in
-      Filter.setFilterSet(self.filterSet)
-      return self.navigator.revert(animated: true)
-    }
-  }
-  
   lazy var selectAction = Action<Setter, Void> { [unowned self] setter in
     self.filterSet.setFilterComponents(setter)
     return .just()
@@ -48,9 +41,20 @@ class FilterViewModel: BaseViewModel {
     self.filterSet.clear()
     return .just()
   }
+  
+  func onConfirm() -> CocoaAction {
+    return CocoaAction { [weak self] in
+      if let base = self {
+        Filter.setFilterSet(base.filterSet)
+        base.refresh()
+        return base.navigator.revert(animated: true)
+      } else { return .just() }
+    }
+  }
 
-  init(navigator: NavigatorType) {
+  init(navigator: NavigatorType, refresh: @escaping () -> (Void)) {
     self.navigator = navigator
+    self.refresh = refresh
     cancelAction = CocoaAction { navigator.revert(animated: true) }
     self.filterSet = Filter.getFilterSet()
   }

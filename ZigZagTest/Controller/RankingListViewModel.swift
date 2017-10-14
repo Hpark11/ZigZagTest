@@ -13,12 +13,13 @@ import Action
 
 typealias ShopSection = AnimatableSectionModel<String, ShoppingMall>
 
-struct RankingListViewModel: BaseViewModel {
+class RankingListViewModel: BaseViewModel {
   typealias Key = Filter.Category
   
   let identifier: String = "RankingList"
   let navigator: NavigatorType
-
+  let result: [String: Any]
+  
   var items: Observable<[ShopSection]> {
     return APIService.shoppingMalls
       .map { shops in
@@ -33,20 +34,24 @@ struct RankingListViewModel: BaseViewModel {
             for s in $0.style { if board.contains(s) { return true } }
             return false
           }
-        
         return [ShopSection(model: "", items: filtered.sorted { $0.score > $1.score })]
       }
   }
   
+  lazy var refresh: () -> (Void) = { [unowned self] _ in
+    APIService.subject.onNext(self.result)
+  }
+  
   lazy var filterAction: CocoaAction = { this in
     return Action {
-      let filterViewModel = FilterViewModel(navigator: this.navigator)
+      let filterViewModel = FilterViewModel(navigator: this.navigator, refresh: this.refresh)
       return this.navigator.navigate(to: Stage.filter(filterViewModel), type: .modal(.normal))
     }
   }(self)
   
   init(navigator: NavigatorType) {
     self.navigator = navigator
+    result = APIService.request()
+    APIService.subject.onNext(self.result)
   }
-  
 }
