@@ -25,12 +25,12 @@ class RankingListViewModel: BaseViewModel {
       .map { shops in
         let set = Filter.getFilterSet()
         let filtered = set.isInitialized ? shops : shops
-          .filter {
+          .filter { // Age Filtering
             guard let board = set.exposed[Key.age.val] as? [Int] else { return false }
             if !board.contains(1) { return true }
             for (i, e) in $0.age.enumerated() { if board[i] == e && e == 1 { return true } }
             return false
-          }.filter {
+          }.filter { // Style Filtering
             guard let board = set.exposed[Key.style.val] as? [String] else { return false }
             if board.count == 0 { return true }
             for s in $0.style { if board.contains(s) { return true } }

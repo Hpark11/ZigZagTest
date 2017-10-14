@@ -18,7 +18,7 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
   var disposedBag = DisposeBag()
   
   lazy var subStackViews: (Filter.Category, Action<Setter, Void>, [String: Any]) -> ([UIStackView]) =
-    { [weak self] type, action, filterSet in
+    { type, action, filterSet in
     var stackViews: [UIStackView] = []
     let colForRow: Int = Filter.rows(type)
     
