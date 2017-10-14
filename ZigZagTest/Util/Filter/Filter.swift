@@ -21,6 +21,7 @@ struct Filter {
     var identity: String { return "filter" }
   }
   
+  // Filter Environment
   static func rows(_ type: Category) -> Int {
     switch type {
     case .age: return 4
@@ -42,6 +43,21 @@ struct Filter {
     }
   }
   
+  // Read And Write FilterSet
+  static func getFilterSet() -> FilterSet {
+    if let data = UserDefaults.standard.object(forKey: Filter.identifier) as? [String: Any],
+      let set = FilterSet(data: data) {
+      return set
+    } else {
+      return FilterSet()
+    }
+  }
+  
+  static func setFilterSet(_ filterSet: FilterSet) {
+    UserDefaults.standard.set(filterSet.exposed, forKey: Filter.identifier)
+  }
+  
+  // Filter Data
   static let ages: [String] = [
     "10대",
     "20대 초반",

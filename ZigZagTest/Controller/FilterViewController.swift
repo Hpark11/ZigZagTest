@@ -24,11 +24,6 @@ class FilterViewController: UIViewController, ViewModelBindable {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    filterTableView.register(FilterTableViewCell.self)
-    filterTableView.rowHeight = UITableViewAutomaticDimension
-    filterTableView.estimatedRowHeight = 100
-    filterTableView.separatorStyle = .none
-    
     configure()
     
     viewModel.items
@@ -45,6 +40,11 @@ class FilterViewController: UIViewController, ViewModelBindable {
   }
 
   private func configure() {
+    filterTableView.register(FilterTableViewCell.self)
+    filterTableView.rowHeight = UITableViewAutomaticDimension
+    filterTableView.estimatedRowHeight = 100
+    filterTableView.separatorStyle = .none
+    
     dataSource.titleForHeaderInSection = { data, index in
       data.sectionModels[index].model
     }

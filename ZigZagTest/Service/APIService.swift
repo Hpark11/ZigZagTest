@@ -19,7 +19,23 @@ struct APIService {
     case invalidJSON(String)
   }
   
-  static func request() -> Observable<[String: Any]> {
+  static var week: Observable<String> = {
+    return APIService.request()
+      .map { data in
+        let week = data["week"] as? String ?? ""
+        return week
+      }.shareReplay(1)
+  }()
+  
+  static var shoppingMalls: Observable<[ShoppingMall]> = {
+    return APIService.request()
+      .map { data in
+        let malls = data["list"] as? [[String: Any]] ?? []
+        return malls.flatMap(ShoppingMall.init).sorted { $0.score < $1.score }
+      }.shareReplay(1)
+  }()
+  
+  private static func request() -> Observable<[String: Any]> {
     return Observable.create { observer in
       guard let path = Bundle.main.path(forResource: filename, ofType: "json", inDirectory: "zigzagRes") else {
         observer.onError(ServiceError.invalidPath("zigzagRes/\(filename).json"))
@@ -41,25 +57,4 @@ struct APIService {
       return Disposables.create()
     }
   }
-  
-//  static var categories: Observable<[EOCategory]> = {
-//    return EONET.request(endpoint: categoriesEndpoint)
-//      .map { data in
-//        let categories = data["categories"] as? [[String: Any]] ?? []
-//        return categories
-//          .flatMap(EOCategory.init)
-//          .sorted { $0.name < $1.name }
-//      }
-//      .shareReplay(1)
-//  }()
-  
-  static var week: Observable<String> {
-    return .just("")
-  }
-  
-  //static var shoppingMalls: Observable
-  
-  
-  
-  
 }

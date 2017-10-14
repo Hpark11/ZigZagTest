@@ -33,18 +33,18 @@ class FilterViewModel: BaseViewModel {
   }
   
   func onConfirm() -> CocoaAction {
-    return CocoaAction {
-      UserDefaults.standard.set(self.filterSet.exposed, forKey: Filter.identifier)
+    return CocoaAction { [unowned self] in
+      Filter.setFilterSet(self.filterSet)
       return self.navigator.revert(animated: true)
     }
   }
   
-  lazy var selectAction = Action<Setter, Void> { setter in
-    self.filterSet.setFilter(setter)
+  lazy var selectAction = Action<Setter, Void> { [unowned self] setter in
+    self.filterSet.setFilterComponents(setter)
     return .just()
   }
   
-  lazy var initializeAction = CocoaAction {
+  lazy var initializeAction = CocoaAction { [unowned self] in
     self.filterSet.clear()
     return .just()
   }
@@ -52,11 +52,6 @@ class FilterViewModel: BaseViewModel {
   init(navigator: NavigatorType) {
     self.navigator = navigator
     cancelAction = CocoaAction { navigator.revert(animated: true) }
-    if let data = UserDefaults.standard.object(forKey: Filter.identifier) as? [String: Any],
-      let set = FilterSet(data: data) {
-      self.filterSet = set
-    } else {
-      self.filterSet = FilterSet()
-    }
+    self.filterSet = Filter.getFilterSet()
   }
 }

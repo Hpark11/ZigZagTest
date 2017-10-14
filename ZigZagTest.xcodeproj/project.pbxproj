@@ -21,6 +21,8 @@
 		813F4C931F91AAD400050413 /* ZigZag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 813F4C921F91AAD400050413 /* ZigZag.storyboard */; };
 		813F4C951F91AB3B00050413 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 813F4C941F91AB3B00050413 /* Launch.storyboard */; };
 		813F4C971F91ABD500050413 /* ShoppingMall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F4C961F91ABD500050413 /* ShoppingMall.swift */; };
+		813F4C9A1F91B80900050413 /* ShoppingMallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F4C981F91B80900050413 /* ShoppingMallTableViewCell.swift */; };
+		813F4C9B1F91B80900050413 /* ShoppingMallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */; };
 		815165481F8E35D2001493FD /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165471F8E35D2001493FD /* BaseViewModel.swift */; };
 		8151654A1F8E37AC001493FD /* NavigatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165491F8E37AC001493FD /* NavigatorType.swift */; };
 		8151654F1F8E5981001493FD /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151654E1F8E5981001493FD /* ViewModelBindable.swift */; };
@@ -81,6 +83,8 @@
 		813F4C921F91AAD400050413 /* ZigZag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZigZag.storyboard; sourceTree = "<group>"; };
 		813F4C941F91AB3B00050413 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		813F4C961F91ABD500050413 /* ShoppingMall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingMall.swift; sourceTree = "<group>"; };
+		813F4C981F91B80900050413 /* ShoppingMallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingMallTableViewCell.swift; sourceTree = "<group>"; };
+		813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingMallTableViewCell.xib; sourceTree = "<group>"; };
 		815165471F8E35D2001493FD /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		815165491F8E37AC001493FD /* NavigatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorType.swift; sourceTree = "<group>"; };
 		8151654E1F8E5981001493FD /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 			children = (
 				8151655A1F8E8796001493FD /* FilterTableViewCell.swift */,
 				8151655B1F8E8796001493FD /* FilterTableViewCell.xib */,
+				813F4C981F91B80900050413 /* ShoppingMallTableViewCell.swift */,
+				813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813F4C9B1F91B80900050413 /* ShoppingMallTableViewCell.xib in Resources */,
 				8151655D1F8E8796001493FD /* FilterTableViewCell.xib in Resources */,
 				813F4C931F91AAD400050413 /* ZigZag.storyboard in Resources */,
 				813F4C7F1F919C6F00050413 /* zigzagRes in Resources */,
@@ -619,6 +626,7 @@
 				8151655C1F8E8796001493FD /* FilterTableViewCell.swift in Sources */,
 				811133731F8E30B100604D22 /* FilterViewModel.swift in Sources */,
 				811133691F8E2E6100604D22 /* Stage.swift in Sources */,
+				813F4C9A1F91B80900050413 /* ShoppingMallTableViewCell.swift in Sources */,
 				811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */,
 				817BFCB41F8FCAD300B9ABB0 /* FilterSet.swift in Sources */,
 				815165631F8E8E15001493FD /* Filter.swift in Sources */,

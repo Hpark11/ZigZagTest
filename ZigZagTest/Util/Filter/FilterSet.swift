@@ -40,7 +40,7 @@ class FilterSet {
     styles = []
   }
   
-  public func setFilter(_ s: Setter) {
+  public func setFilterComponents(_ s: Setter) {
     switch s.key {
     case .age: age(s.value as! Int)
     case .style: style(s.value as! String)
