@@ -57,6 +57,14 @@ struct Filter {
     UserDefaults.standard.set(filterSet.exposed, forKey: Filter.identifier)
   }
   
+  static func getRepresentativeAgesData(_ ages: [Int]) -> String {
+    var res = [String?](repeating: "", count: 3)
+    res[0] = ages[0] == 1 ? "10대" : nil
+    res[1] = ages[1...3].flatMap {$0 == 1 ? 1 : nil}.count > 0 ? "20대" : nil
+    res[2] = ages[4...6].flatMap {$0 == 1 ? 1 : nil}.count > 0 ? "30대" : nil
+    return res.flatMap {$0}.joined(separator: " ")
+  }
+  
   // Filter Data
   static let ages: [String] = [
     "10대",

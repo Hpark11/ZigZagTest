@@ -7,11 +7,6 @@
 //
 
 import UIKit
-import CoreData
-import RxSwift
-import RxCocoa
-import RxDataSources
-import Action
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMF-Os-Qs0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="134"/>
+            <point key="canvasLocation" x="66" y="139"/>
         </scene>
         <!--ASSIGNMENT-->
         <scene sceneID="A0T-RJ-82U">
@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="34" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7s-tM-ujr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="68" estimatedRowHeight="-1" sectionHeaderHeight="34" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7s-tM-ujr">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -51,9 +51,6 @@
                         <barButtonItem key="leftBarButtonItem" title="필터" id="3id-pN-hYU">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="3Yn-SU-wHH">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="filterButton" destination="3id-pN-hYU" id="zyC-qn-11j"/>
@@ -63,21 +60,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loF-79-pr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1854" y="139"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="WNJ-eu-sVH">
-            <objects>
-                <viewController id="p3g-q2-JOo" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="c2Z-p6-f6K">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="4kb-uW-hGe"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R12-Th-yyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2598" y="139"/>
         </scene>
         <!--쇼핑몰 필터-->
         <scene sceneID="5eF-mv-Tcf">

@@ -14,19 +14,27 @@ import Action
 typealias ShopSection = AnimatableSectionModel<String, ShoppingMall>
 
 struct RankingListViewModel: BaseViewModel {
+  typealias Key = Filter.Category
+  
   let identifier: String = "RankingList"
   let navigator: NavigatorType
 
-  
-  
   var items: Observable<[ShopSection]> {
     return APIService.shoppingMalls
       .map { shops in
-        let set = Filter.getFilterSet().exposed
-        let filtered = shops
-          .filter { $0.age.elementsEqual(set[Filter.Category.age.val] as! [Int]) }
-          .filter { $0.style.elementsEqual(set[Filter.Category.style.val] as! [String]) }
-        return [ShopSection(model: "", items: filtered)]
+        let set = Filter.getFilterSet()
+        let filtered = set.isInitialized ? shops : shops
+          .filter {
+            guard let board = set.exposed[Key.age.val] as? [Int] else { return false }
+            for (i, e) in $0.age.enumerated() { if board[i] == e && e == 1 { return true } }
+            return false
+          }.filter {
+            guard let board = set.exposed[Key.style.val] as? [String] else { return false }
+            for s in $0.style { if board.contains(s) { return true } }
+            return false
+          }
+        
+        return [ShopSection(model: "", items: filtered.sorted { $0.score > $1.score })]
       }
   }
   
@@ -36,7 +44,6 @@ struct RankingListViewModel: BaseViewModel {
       return this.navigator.navigate(to: Stage.filter(filterViewModel), type: .modal(.normal))
     }
   }(self)
-  
   
   init(navigator: NavigatorType) {
     self.navigator = navigator

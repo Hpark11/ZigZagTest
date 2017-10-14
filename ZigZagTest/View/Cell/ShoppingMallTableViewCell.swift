@@ -11,7 +11,7 @@ import UIKit
 class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
 
   @IBOutlet weak var rankLabel: UILabel!
-  @IBOutlet weak var shopImageView: UIImageView!
+  @IBOutlet weak var shopImageView: DownloadableImageView!
   @IBOutlet weak var shopNameLabel: UILabel!
   @IBOutlet weak var ageLabel: UILabel!
   @IBOutlet weak var styleStackView: UIStackView!
@@ -20,7 +20,33 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
     super.init(coder: aDecoder)
   }
   
-  func configure() {
+  func configure(shop: ShoppingMall, index: Int) {
+    rankLabel.text = "\(index + 1)"
+    shopNameLabel.text = shop.name
+    ageLabel.text = Filter.getRepresentativeAgesData(shop.age)
     
+    styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
+      guard let label = views as? UILabel, shop.style.count > offset else { return }
+      label.text = shop.style[offset]
+    }
+
+    let pattern = "(http:\\/\\/www.|www.|http:\\/\\/)([\\w-]+)([\\.\\w\\/]+)"
+    let regex = try! NSRegularExpression(pattern: pattern, options: [])
+    let replacedStr = regex.stringByReplacingMatches(in: shop.url, options: [],
+                                                     range: NSRange(location: 0, length: shop.url.characters.count),
+                                                     withTemplate: "$2")
+    
+    shopImageView.imageUrl = "https://cf.shop.s.zigzag.kr/images/\(replacedStr).jpg"
+  }
+  
+  override func awakeFromNib() {
+    shopImageView.layer.masksToBounds = false
+    shopImageView.layer.cornerRadius = shopImageView.frame.height / 2
+    shopImageView.clipsToBounds = true
+  }
+  
+  override func prepareForReuse() {
+    shopImageView.image = nil
+    super.prepareForReuse()
   }
 }

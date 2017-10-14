@@ -29,6 +29,10 @@ class RankingListViewController: UIViewController, ViewModelBindable {
       .disposed(by: disposeBag)
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+  }
+  
   func bind() {
     filterButton.rx.action = viewModel.filterAction
     APIService.week.bind(to: week).disposed(by: disposeBag)
@@ -41,17 +45,13 @@ class RankingListViewController: UIViewController, ViewModelBindable {
 
     dataSource.titleForHeaderInSection = { [weak self] _ in
       guard let base = self else { return "" }
-      return base.week.value
+      return "\(base.week.value)차 랭킹"
     }
     
-    dataSource.configureCell = { [weak self] data, tableView, indexPath, type in
+    dataSource.configureCell = { data, tableView, indexPath, shop in
       let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ShoppingMallTableViewCell
-      if let base = self { cell.configure() }
+      cell.configure(shop: shop, index: indexPath.row)
       return cell
     }
   }
-    
-  
-  
-
 }

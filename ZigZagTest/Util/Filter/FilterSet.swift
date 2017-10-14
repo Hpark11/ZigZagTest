@@ -35,6 +35,10 @@ class FilterSet {
             Key.style.val: Array(styles)]
   }
   
+  public var isInitialized: Bool {
+    return !ages.contains(1) && styles.count == 0
+  }
+  
   public func clear() {
     ages = ages.map { _ in 0 }
     styles = []

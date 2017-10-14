@@ -51,7 +51,9 @@ class FilterViewController: UIViewController, ViewModelBindable {
     
     dataSource.configureCell = { [weak self] data, tableView, indexPath, type in
       let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as FilterTableViewCell
-      if let base = self { cell.configure(type: type, update: base.viewModel.selectAction, set: base.viewModel.filterSet.exposed) }
+      if let base = self {
+        cell.configure(type: type, update: base.viewModel.selectAction, set: base.viewModel.filterSet.exposed)
+      }
       return cell
     }
   }
