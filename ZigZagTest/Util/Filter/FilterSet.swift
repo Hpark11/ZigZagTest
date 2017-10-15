@@ -14,22 +14,6 @@ class FilterSet {
   private var ages: [Int]
   private var styles: Set<String>
   
-  private init(ages: [Int], styles: Set<String>) {
-    self.ages = ages
-    self.styles = styles
-  }
-  
-  init() {
-    self.ages = Array(repeating: 0, count: Filter.ages.count)
-    self.styles = []
-  }
-  
-  convenience init?(data: [String: Any]) {
-    guard let ages = data[Key.age.val] as? [Int],
-      let styles = data[Key.style.val] as? [String] else { return nil }
-    self.init(ages: ages, styles: Set(styles))
-  }
-  
   public var exposed: [String: Any] {
     return [Key.age.val: ages,
             Key.style.val: Array(styles)]
@@ -39,9 +23,44 @@ class FilterSet {
     return !ages.contains(1) && styles.count == 0
   }
   
+  init() {
+    self.ages = Array(repeating: 0, count: Filter.ages.count)
+    self.styles = []
+  }
+  
+  private init(ages: [Int], styles: Set<String>) {
+    self.ages = ages
+    self.styles = styles
+  }
+  
+  convenience init?(data: [String: Any]) {
+    guard let ages = data[Key.age.val] as? [Int],
+      let styles = data[Key.style.val] as? [String] else { return nil }
+    self.init(ages: ages, styles: Set(styles))
+  }
+
   public func clear() {
     ages = ages.map { _ in 0 }
     styles = []
+  }
+  
+  public func filtered(_ s: Setter) -> Bool {
+    switch s.key {
+    case .age: return filteredAge(s.value as! [Int])
+    case .style: return filteredStyles(s.value as! [String])
+    }
+  }
+  
+  private func filteredAge(_ data: [Int]) -> Bool {
+    if !ages.contains(1) { return true }
+    for (i, e) in data.enumerated() { if ages[i] == e && e == 1 { return true } }
+    return false
+  }
+  
+  private func filteredStyles(_ data: [String]) -> Bool {
+    if styles.count == 0 { return true }
+    for s in data { if styles.contains(s) { return true } }
+    return false
   }
   
   public func setFilterComponents(_ s: Setter) {
@@ -56,10 +75,7 @@ class FilterSet {
   }
   
   private func style(_ style: String) {
-    if styles.contains(style) {
-      styles.remove(style)
-    } else {
-      styles.insert(style)
-    }
+    if styles.contains(style) { styles.remove(style) }
+    else { styles.insert(style) }
   }
 }

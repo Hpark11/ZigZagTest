@@ -25,17 +25,8 @@ class RankingListViewModel: BaseViewModel {
       .map { shops in
         let set = Filter.getFilterSet()
         let filtered = set.isInitialized ? shops : shops
-          .filter { // Age Filtering
-            guard let board = set.exposed[Key.age.val] as? [Int] else { return false }
-            if !board.contains(1) { return true }
-            for (i, e) in $0.age.enumerated() { if board[i] == e && e == 1 { return true } }
-            return false
-          }.filter { // Style Filtering
-            guard let board = set.exposed[Key.style.val] as? [String] else { return false }
-            if board.count == 0 { return true }
-            for s in $0.style { if board.contains(s) { return true } }
-            return false
-          }
+          .filter { set.filtered((key: Filter.Category.age, value: $0.age)) }
+          .filter { set.filtered((key: Filter.Category.style, value: $0.style)) }
         return [ShopSection(model: "", items: filtered.sorted { $0.score > $1.score })]
       }
   }
