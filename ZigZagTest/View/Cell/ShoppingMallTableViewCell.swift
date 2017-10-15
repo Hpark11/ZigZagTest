@@ -23,11 +23,10 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   func configure(shop: ShoppingMall, index: Int) {
     rankLabel.text = "\(index + 1)"
     shopNameLabel.text = shop.name
-    ageLabel.text = Filter.getRepresentativeAgesData(shop.age)
-    ageLabel.frame.size.width = ageLabel.frame.width + 8
-    
+    ageLabel.text = Filter.getRepresentativeAgesData(shop.age)    
     styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
-      guard let label = views as? UILabel, shop.style.count > offset else { return }
+      guard let label = views as? PaddedLabel, shop.style.count > offset else { return }
+      label.layer.borderColor = UIColor.lightGray.cgColor
       label.text = shop.style[offset]
     }
 
@@ -46,8 +45,6 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
     shopImageView.clipsToBounds = true
     
     ageLabel.layer.borderColor = UIColor.lightGray.cgColor
-    ageLabel.layer.cornerRadius = 4
-    ageLabel.layer.borderWidth = 0.4
   }
   
   override func prepareForReuse() {
