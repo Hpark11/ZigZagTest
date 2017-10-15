@@ -29,10 +29,6 @@ class RankingListViewController: UIViewController, ViewModelBindable {
       .disposed(by: disposeBag)
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-  }
-  
   func bind() {
     filterButton.rx.action = viewModel.filterAction
     APIService.week.bind(to: week).disposed(by: disposeBag)

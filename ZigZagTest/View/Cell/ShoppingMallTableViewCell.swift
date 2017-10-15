@@ -26,8 +26,11 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
     ageLabel.text = Filter.getRepresentativeAgesData(shop.age)    
     styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
       guard let label = views as? PaddedLabel, shop.style.count > offset else { return }
-      label.layer.borderColor = UIColor.lightGray.cgColor
       label.text = shop.style[offset]
+      label.layer.borderColor = Filter.styles[shop.style[offset]]!.bd.cgColor
+      label.textColor = Filter.styles[shop.style[offset]]!.bd
+      label.backgroundColor = Filter.styles[shop.style[offset]]!.bg
+      label.layer.masksToBounds = true
     }
 
     let pattern = "(http:\\/\\/www.|www.|http:\\/\\/)([\\w-]+)([\\.\\w\\/]+)"

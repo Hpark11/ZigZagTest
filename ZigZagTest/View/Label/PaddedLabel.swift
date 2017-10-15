@@ -36,6 +36,15 @@ class PaddedLabel: UILabel {
     let insets: UIEdgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
     super.drawText(in: UIEdgeInsetsInsetRect(self.frame, insets))
   }
+  
+  func roundCorners(_ corner: UIRectCorner,_ radii: CGFloat) {
+    let maskLayer = CAShapeLayer()
+    maskLayer.frame = self.layer.bounds
+    maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: radii, height: radii)).cgPath
+    
+    self.layer.mask = maskLayer
+    layer.masksToBounds = true
+  }
 }
 
 

@@ -23,7 +23,6 @@ class FilterViewController: UIViewController, ViewModelBindable {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     configure()
     
     viewModel.items

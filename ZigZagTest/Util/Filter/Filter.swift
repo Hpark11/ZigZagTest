@@ -32,7 +32,7 @@ struct Filter {
   static func list(_ type: Category) -> [String] {
     switch type {
     case .age: return ages
-    case .style: return styles
+    case .style: return styles.keys.map { $0 }
     }
   }
   
@@ -76,21 +76,22 @@ struct Filter {
     "30대 후반"
   ]
 
-  static let styles: [String] = [
-    "페미닌",
-    "모던시크",
-    "심플베이직",
-    "러블리",
-    "유니크",
-    "미시스타일",
-    "캠퍼스룩",
-    "빈티지",
-    "섹시글램",
-    "스쿨룩",
-    "로맨틱",
-    "오피스룩",
-    "럭셔리",
-    "헐리웃스타일"
+  // bg for Background, bd for Border Color
+  static let styles: [String: (bg: UIColor, bd: UIColor)] = [
+    "페미닌" : (bg: UIColor.Flat.Green.fern, bd: UIColor.darkGray),
+    "모던시크" : (bg: UIColor.Flat.Green.mountain, bd: UIColor.darkGray),
+    "심플베이직" : (bg: UIColor.Flat.Blue.picton, bd: UIColor.Flat.Blue.whale),
+    "러블리" : (bg: UIColor.Flat.Blue.mariner, bd: UIColor.black),
+    "유니크" : (bg: UIColor.Flat.Violet.wisteria, bd: UIColor.Flat.Violet.gem),
+    "미시스타일" : (bg: UIColor.Flat.Blue.mariner, bd: UIColor.Flat.Blue.whale),
+    "캠퍼스룩" : (bg: UIColor.Flat.Yellow.energy, bd: UIColor.Flat.Red.well),
+    "빈티지" : (bg: UIColor.Flat.Orange.neon, bd: UIColor.Flat.Orange.sun),
+    "섹시글램" : (bg: UIColor.Flat.Red.terra, bd: UIColor.Flat.Red.well),
+    "스쿨룩" : (bg: UIColor.Flat.Yellow.turbo, bd: UIColor.red),
+    "로맨틱" : (bg: UIColor.Flat.Gray.almond, bd: UIColor.darkGray),
+    "오피스룩" : (bg: UIColor.Flat.Gray.smoke, bd: UIColor.lightGray),
+    "럭셔리" : (bg: UIColor.Flat.Green.fern, bd: UIColor.Flat.Blue.denim),
+    "헐리웃스타일" : (bg: UIColor.Flat.Blue.picton, bd: UIColor.Flat.Violet.gem)
   ]
 
 }
