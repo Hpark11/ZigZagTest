@@ -17,21 +17,23 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
   
   var disposedBag = DisposeBag()
   
+  private func createCustomizedStackView() -> UIStackView {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.alignment = .fill
+    stackView.distribution = .fillEqually
+    stackView.spacing = 4.0
+    return stackView
+  }
+  
   lazy var subStackViews: (Filter.Category, Action<Setter, Void>, [String: Any]) -> ([UIStackView]) =
-    { type, action, filterSet in
+    { [unowned self] type, action, filterSet in
     var stackViews: [UIStackView] = []
     let colForRow: Int = Filter.rows(type)
     
     Filter.list(type).enumerated().forEach { offset, title in
       let index = offset % colForRow
-      if index == 0 {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.spacing = 4.0
-        stackViews.append(stackView)
-      }
+      if index == 0 { stackViews.append(self.createCustomizedStackView()) }
       
       let value: Any
       var button = RoundedButton(title, color: Filter.keyColor(type))
