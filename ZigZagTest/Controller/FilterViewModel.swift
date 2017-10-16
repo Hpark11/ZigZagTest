@@ -42,14 +42,12 @@ class FilterViewModel: BaseViewModel {
     return .just()
   }
   
-  func onConfirm() -> CocoaAction {
-    return CocoaAction { [weak self] in
-      if let base = self {
-        Filter.setFilterSet(base.filterSet)
-        base.refresh()
-        return base.navigator.revert(animated: true)
-      } else { return .just() }
-    }
+  lazy var confirmAction = CocoaAction { [weak self] in
+    if let base = self {
+      Filter.setFilterSet(base.filterSet)
+      base.refresh()
+      return base.navigator.revert(animated: true)
+    } else { return .just() }
   }
 
   init(navigator: NavigatorType, refresh: @escaping () -> (Void)) {

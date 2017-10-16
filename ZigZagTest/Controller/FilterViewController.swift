@@ -32,7 +32,7 @@ class FilterViewController: UIViewController, ViewModelBindable {
 
   func bind() {
     cancelButton.rx.action = viewModel.cancelAction
-    confirmButton.rx.action = viewModel.onConfirm()
+    confirmButton.rx.action = viewModel.confirmAction
     initializeButton.rx.bind(to: viewModel.initializeAction) { [weak self] _ in
       if let base = self { base.filterTableView.reloadData() }
     }
