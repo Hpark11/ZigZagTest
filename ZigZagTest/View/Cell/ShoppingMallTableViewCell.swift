@@ -20,17 +20,20 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
     super.init(coder: aDecoder)
   }
   
+  func configureStyleLabel(name: String, label: PaddedLabel) {
+    label.text = name
+    label.layer.borderColor = Filter.styles[name]!.bd.cgColor
+    label.textColor = Filter.styles[name]!.bd
+    label.backgroundColor = Filter.styles[name]!.bg
+  }
+  
   func configure(shop: ShoppingMall, index: Int) {
     rankLabel.text = "\(index + 1)"
     shopNameLabel.text = shop.name
     ageLabel.text = Filter.getRepresentativeAgesData(shop.age)    
     styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
       guard let label = views as? PaddedLabel, shop.style.count > offset else { return }
-      label.text = shop.style[offset]
-      label.layer.borderColor = Filter.styles[shop.style[offset]]!.bd.cgColor
-      label.textColor = Filter.styles[shop.style[offset]]!.bd
-      label.backgroundColor = Filter.styles[shop.style[offset]]!.bg
-      label.layer.masksToBounds = true
+      configureStyleLabel(name: shop.style[offset], label: label)
     }
 
     let pattern = "(http:\\/\\/www.|www.|http:\\/\\/)([\\w-]+)([\\.\\w\\/]+)"
@@ -43,10 +46,8 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   }
   
   override func awakeFromNib() {
-    shopImageView.layer.masksToBounds = false
     shopImageView.layer.cornerRadius = shopImageView.frame.height / 2
     shopImageView.clipsToBounds = true
-    
     ageLabel.layer.borderColor = UIColor.lightGray.cgColor
   }
   

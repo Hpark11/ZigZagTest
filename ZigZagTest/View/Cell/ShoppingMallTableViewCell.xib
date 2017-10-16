@@ -53,16 +53,16 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Eq3-Rw-A32">
-                        <rect key="frame" x="139" y="41.5" width="97" height="16"/>
+                        <rect key="frame" x="139" y="41.5" width="73" height="16"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dlkqwjenjkwrer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-vM-f0y" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyunsoo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-vM-f0y" userLabel="park" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvi-nM-zk8" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
-                                <rect key="frame" x="82.5" y="0.0" width="14.5" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvi-nM-zk8" userLabel="hyunsoo" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
+                                <rect key="frame" x="48.5" y="0.0" width="24.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

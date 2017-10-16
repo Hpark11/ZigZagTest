@@ -27,7 +27,7 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
   }
   
   lazy var subStackViews: (Filter.Category, Action<Setter, Void>, [String: Any]) -> ([UIStackView]) =
-    { [unowned self] type, action, filterSet in
+    { [unowned self] type, action, set in
     var stackViews: [UIStackView] = []
     let colForRow: Int = Filter.rows(type)
     
@@ -41,10 +41,10 @@ class FilterTableViewCell: UITableViewCell, NibLoadable {
       switch type {
       case .age:
         value = offset
-        if let ages = filterSet[type.val] as? [Int] { button.isChecked = ages[offset] == 1 ? true : false }
+        if let ages = set[type.val] as? [Int] { button.isChecked = ages[offset] == 1 ? true : false }
       case .style:
         value = title
-        if let styles = filterSet[type.val] as? [String] { button.isChecked = styles.contains(title) ? true : false }
+        if let styles = set[type.val] as? [String] { button.isChecked = styles.contains(title) ? true : false }
       }
       
       button.rx.bind(to: action) { btn in

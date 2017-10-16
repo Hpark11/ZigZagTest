@@ -27,7 +27,9 @@ class RankingListViewModel: BaseViewModel {
         let filtered = set.isInitialized ? shops : shops
           .filter { set.filtered((key: Filter.Category.age, value: $0.age)) }
           .filter { set.filtered((key: Filter.Category.style, value: $0.style)) }
-        return [ShopSection(model: "", items: filtered.sorted { $0.score > $1.score })]
+          .sorted { set.matches($0.style) == set.matches($1.style) ?
+            $0.score > $1.score : set.matches($0.style) > set.matches($1.style) }
+        return [ShopSection(model: "", items: filtered)]
       }
   }
   

@@ -44,6 +44,10 @@ class FilterSet {
     styles = []
   }
   
+  public func matches(_ data: [String]) -> Int {
+    return data.reduce(0) { styles.contains($1) ? $0 + 1 : $0 }
+  }
+  
   public func filtered(_ s: Setter) -> Bool {
     switch s.key {
     case .age: return filteredAge(s.value as! [Int])

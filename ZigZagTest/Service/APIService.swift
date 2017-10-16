@@ -32,7 +32,7 @@ struct APIService {
     return APIService.subject.asObservable()
       .map { data in
         let malls = data["list"] as? [[String: Any]] ?? []
-        return malls.flatMap(ShoppingMall.init)
+        return malls.flatMap(ShoppingMall.init).sorted { $0.score > $1.score }
       }.shareReplay(1)
   }()
   

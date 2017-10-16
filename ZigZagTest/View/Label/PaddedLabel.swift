@@ -17,6 +17,7 @@ class PaddedLabel: UILabel {
   override func drawText(in rect: CGRect) {
     self.layer.cornerRadius = 4
     self.layer.borderWidth = 0.4
+    self.layer.masksToBounds = true
     let insets: UIEdgeInsets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
     super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
   }
