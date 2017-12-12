@@ -7,32 +7,24 @@
 //
 
 import UIKit.UIColor
-import RxDataSources
 
 struct Filter {
+  static let shared = Filter()
   static let identifier = "filter"
   
-  enum Category: String, IdentifiableType {
+  enum Category: String {
     typealias Identity = String
     case age = "ages"
     case style = "styles"
     
     var val: String { return self.rawValue }
-    var identity: String { return "filter" }
   }
   
   // Filter Environment
-  static func rows(_ type: Category) -> Int {
+  func columns(_ type: Category) -> Int {
     switch type {
     case .age: return 4
     case .style: return 3
-    }
-  }
-  
-  static func list(_ type: Category) -> [String] {
-    switch type {
-    case .age: return ages
-    case .style: return styles.keys.map { $0 }
     }
   }
   
@@ -66,7 +58,7 @@ struct Filter {
   }
   
   // Filter Data
-  static let ages: [String] = [
+  let ages: [String] = [
     "10대",
     "20대 초반",
     "20대 중반",

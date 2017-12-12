@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1DB43ED89114F2AA429A5697 /* Pods_ZigZagTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6071B82465856636B0F27F /* Pods_ZigZagTestUITests.framework */; };
+		5A2394021FDF7C8B00B14E5B /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2394011FDF7C8B00B14E5B /* ModelBase.swift */; };
+		5A2394081FDFBC1F00B14E5B /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2394071FDFBC1F00B14E5B /* UIView+Ext.swift */; };
+		5A23940D1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23940B1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift */; };
+		5A23940E1FDFC3D400B14E5B /* AgeFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A23940C1FDFC3D400B14E5B /* AgeFilterTableViewCell.xib */; };
+		5A2394111FDFC41300B14E5B /* StyleFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23940F1FDFC41300B14E5B /* StyleFilterTableViewCell.swift */; };
+		5A2394121FDFC41300B14E5B /* StyleFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2394101FDFC41300B14E5B /* StyleFilterTableViewCell.xib */; };
 		811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133311F8E19BC00604D22 /* AppDelegate.swift */; };
 		8111334A1F8E19BC00604D22 /* ZigZagTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133491F8E19BC00604D22 /* ZigZagTestTests.swift */; };
 		811133551F8E19BD00604D22 /* ZigZagTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133541F8E19BD00604D22 /* ZigZagTestUITests.swift */; };
-		811133691F8E2E6100604D22 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133681F8E2E6100604D22 /* Stage.swift */; };
-		8111336B1F8E2E7900604D22 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111336A1F8E2E7900604D22 /* Navigator.swift */; };
 		8111336D1F8E306300604D22 /* RankingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111336C1F8E306300604D22 /* RankingListViewController.swift */; };
 		8111336F1F8E307B00604D22 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111336E1F8E307B00604D22 /* FilterViewController.swift */; };
-		811133711F8E30A400604D22 /* RankingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133701F8E30A400604D22 /* RankingListViewModel.swift */; };
-		811133731F8E30B100604D22 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811133721F8E30B100604D22 /* FilterViewModel.swift */; };
 		813F4C7F1F919C6F00050413 /* zigzagRes in Resources */ = {isa = PBXBuildFile; fileRef = 813F4C7E1F919B0600050413 /* zigzagRes */; };
 		813F4C931F91AAD400050413 /* ZigZag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 813F4C921F91AAD400050413 /* ZigZag.storyboard */; };
 		813F4C951F91AB3B00050413 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 813F4C941F91AB3B00050413 /* Launch.storyboard */; };
@@ -24,14 +26,9 @@
 		813F4C9A1F91B80900050413 /* ShoppingMallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F4C981F91B80900050413 /* ShoppingMallTableViewCell.swift */; };
 		813F4C9B1F91B80900050413 /* ShoppingMallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */; };
 		813F4CA01F91FFF900050413 /* DownloadableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F4C9F1F91FFF900050413 /* DownloadableImageView.swift */; };
-		815165481F8E35D2001493FD /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165471F8E35D2001493FD /* BaseViewModel.swift */; };
-		8151654A1F8E37AC001493FD /* NavigatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165491F8E37AC001493FD /* NavigatorType.swift */; };
-		8151654F1F8E5981001493FD /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151654E1F8E5981001493FD /* ViewModelBindable.swift */; };
 		815165541F8E855E001493FD /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165531F8E855E001493FD /* UITableView+Ext.swift */; };
 		815165561F8E85CA001493FD /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165551F8E85CA001493FD /* Identifiable.swift */; };
 		815165591F8E86D5001493FD /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165581F8E86D5001493FD /* NibLoadable.swift */; };
-		8151655C1F8E8796001493FD /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151655A1F8E8796001493FD /* FilterTableViewCell.swift */; };
-		8151655D1F8E8796001493FD /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8151655B1F8E8796001493FD /* FilterTableViewCell.xib */; };
 		815165631F8E8E15001493FD /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165621F8E8E15001493FD /* Filter.swift */; };
 		8167653B1F926ADD006DD5EE /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167653A1F926ADD006DD5EE /* PaddedLabel.swift */; };
 		817BFCB01F8F35EB00B9ABB0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */; };
@@ -64,6 +61,12 @@
 		22A019C1BBAC7B1239E30BC9 /* Pods-ZigZagTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestTests/Pods-ZigZagTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		43BC97858FCC51CC974F9BBF /* Pods_ZigZagTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigZagTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F5B1FC7725BCCAC39692A1 /* Pods-ZigZagTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestUITests/Pods-ZigZagTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5A2394011FDF7C8B00B14E5B /* ModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
+		5A2394071FDFBC1F00B14E5B /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		5A23940B1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeFilterTableViewCell.swift; sourceTree = "<group>"; };
+		5A23940C1FDFC3D400B14E5B /* AgeFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeFilterTableViewCell.xib; sourceTree = "<group>"; };
+		5A23940F1FDFC41300B14E5B /* StyleFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleFilterTableViewCell.swift; sourceTree = "<group>"; };
+		5A2394101FDFC41300B14E5B /* StyleFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StyleFilterTableViewCell.xib; sourceTree = "<group>"; };
 		5C6071B82465856636B0F27F /* Pods_ZigZagTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigZagTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8111332E1F8E19BC00604D22 /* ZigZagTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZigZagTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		811133311F8E19BC00604D22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,12 +76,8 @@
 		811133501F8E19BC00604D22 /* ZigZagTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZigZagTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		811133541F8E19BD00604D22 /* ZigZagTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigZagTestUITests.swift; sourceTree = "<group>"; };
 		811133561F8E19BD00604D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		811133681F8E2E6100604D22 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
-		8111336A1F8E2E7900604D22 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		8111336C1F8E306300604D22 /* RankingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListViewController.swift; sourceTree = "<group>"; };
 		8111336E1F8E307B00604D22 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		811133701F8E30A400604D22 /* RankingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListViewModel.swift; sourceTree = "<group>"; };
-		811133721F8E30B100604D22 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		813F4C7E1F919B0600050413 /* zigzagRes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = zigzagRes; sourceTree = "<group>"; };
 		813F4C811F91A7D400050413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		813F4C861F91A7D400050413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,14 +87,9 @@
 		813F4C981F91B80900050413 /* ShoppingMallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingMallTableViewCell.swift; sourceTree = "<group>"; };
 		813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingMallTableViewCell.xib; sourceTree = "<group>"; };
 		813F4C9F1F91FFF900050413 /* DownloadableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadableImageView.swift; sourceTree = "<group>"; };
-		815165471F8E35D2001493FD /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		815165491F8E37AC001493FD /* NavigatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorType.swift; sourceTree = "<group>"; };
-		8151654E1F8E5981001493FD /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
 		815165531F8E855E001493FD /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		815165551F8E85CA001493FD /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		815165581F8E86D5001493FD /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		8151655A1F8E8796001493FD /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
-		8151655B1F8E8796001493FD /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
 		815165621F8E8E15001493FD /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		8167653A1F926ADD006DD5EE /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -159,6 +153,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A2394091FDFC3A900B14E5B /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				5A23940B1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift */,
+				5A23940C1FDFC3D400B14E5B /* AgeFilterTableViewCell.xib */,
+				5A23940F1FDFC41300B14E5B /* StyleFilterTableViewCell.swift */,
+				5A2394101FDFC41300B14E5B /* StyleFilterTableViewCell.xib */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		5A23940A1FDFC3B500B14E5B /* Malls */ = {
+			isa = PBXGroup;
+			children = (
+				813F4C981F91B80900050413 /* ShoppingMallTableViewCell.swift */,
+				813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */,
+			);
+			path = Malls;
+			sourceTree = "<group>";
+		};
 		811133251F8E19BC00604D22 = {
 			isa = PBXGroup;
 			children = (
@@ -192,7 +206,6 @@
 				811133651F8E2D2D00604D22 /* Model */,
 				811133641F8E2D2800604D22 /* View */,
 				811133631F8E2D1F00604D22 /* Controller */,
-				811133621F8E2CF500604D22 /* Navigation */,
 				813F4C921F91AAD400050413 /* ZigZag.storyboard */,
 				813F4C941F91AB3B00050413 /* Launch.storyboard */,
 			);
@@ -217,22 +230,10 @@
 			path = ZigZagTestUITests;
 			sourceTree = "<group>";
 		};
-		811133621F8E2CF500604D22 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				811133681F8E2E6100604D22 /* Stage.swift */,
-				8111336A1F8E2E7900604D22 /* Navigator.swift */,
-				815165491F8E37AC001493FD /* NavigatorType.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
 		811133631F8E2D1F00604D22 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				811133701F8E30A400604D22 /* RankingListViewModel.swift */,
 				8111336C1F8E306300604D22 /* RankingListViewController.swift */,
-				811133721F8E30B100604D22 /* FilterViewModel.swift */,
 				8111336E1F8E307B00604D22 /* FilterViewController.swift */,
 			);
 			path = Controller;
@@ -254,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				813F4C961F91ABD500050413 /* ShoppingMall.swift */,
+				5A2394011FDF7C8B00B14E5B /* ModelBase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,8 +299,6 @@
 			children = (
 				815165551F8E85CA001493FD /* Identifiable.swift */,
 				815165581F8E86D5001493FD /* NibLoadable.swift */,
-				8151654E1F8E5981001493FD /* ViewModelBindable.swift */,
-				815165471F8E35D2001493FD /* BaseViewModel.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -317,6 +317,7 @@
 			children = (
 				815165531F8E855E001493FD /* UITableView+Ext.swift */,
 				81E4ABC41F93B108005C6B38 /* UIColor+Ext.swift */,
+				5A2394071FDFBC1F00B14E5B /* UIView+Ext.swift */,
 			);
 			path = "UI+Extension";
 			sourceTree = "<group>";
@@ -324,10 +325,8 @@
 		815165571F8E868F001493FD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8151655A1F8E8796001493FD /* FilterTableViewCell.swift */,
-				8151655B1F8E8796001493FD /* FilterTableViewCell.xib */,
-				813F4C981F91B80900050413 /* ShoppingMallTableViewCell.swift */,
-				813F4C991F91B80900050413 /* ShoppingMallTableViewCell.xib */,
+				5A23940A1FDFC3B500B14E5B /* Malls */,
+				5A2394091FDFC3A900B14E5B /* Filter */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -465,10 +464,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				813F4C9B1F91B80900050413 /* ShoppingMallTableViewCell.xib in Resources */,
-				8151655D1F8E8796001493FD /* FilterTableViewCell.xib in Resources */,
 				813F4C931F91AAD400050413 /* ZigZag.storyboard in Resources */,
+				5A2394121FDFC41300B14E5B /* StyleFilterTableViewCell.xib in Resources */,
 				813F4C7F1F919C6F00050413 /* zigzagRes in Resources */,
 				813F4C951F91AB3B00050413 /* Launch.storyboard in Resources */,
+				5A23940E1FDFC3D400B14E5B /* AgeFilterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,13 +510,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZigZagTestTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		38390B1F1786BCEC9687923C /* [CP] Copy Pods Resources */ = {
@@ -585,13 +588,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZigZagTestUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D35C90137D659067EAC90E0E /* [CP] Embed Pods Frameworks */ = {
@@ -615,13 +621,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZigZagTest-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -636,24 +645,20 @@
 				815165561F8E85CA001493FD /* Identifiable.swift in Sources */,
 				813F4C971F91ABD500050413 /* ShoppingMall.swift in Sources */,
 				813F4CA01F91FFF900050413 /* DownloadableImageView.swift in Sources */,
-				8151654F1F8E5981001493FD /* ViewModelBindable.swift in Sources */,
 				817BFCB01F8F35EB00B9ABB0 /* RoundedButton.swift in Sources */,
-				8151655C1F8E8796001493FD /* FilterTableViewCell.swift in Sources */,
-				811133731F8E30B100604D22 /* FilterViewModel.swift in Sources */,
-				811133691F8E2E6100604D22 /* Stage.swift in Sources */,
 				813F4C9A1F91B80900050413 /* ShoppingMallTableViewCell.swift in Sources */,
+				5A23940D1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift in Sources */,
 				8167653B1F926ADD006DD5EE /* PaddedLabel.swift in Sources */,
 				811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */,
 				817BFCB41F8FCAD300B9ABB0 /* FilterSet.swift in Sources */,
 				815165631F8E8E15001493FD /* Filter.swift in Sources */,
-				8111336B1F8E2E7900604D22 /* Navigator.swift in Sources */,
-				811133711F8E30A400604D22 /* RankingListViewModel.swift in Sources */,
-				8151654A1F8E37AC001493FD /* NavigatorType.swift in Sources */,
-				815165481F8E35D2001493FD /* BaseViewModel.swift in Sources */,
 				8111336D1F8E306300604D22 /* RankingListViewController.swift in Sources */,
 				81E4ABC51F93B108005C6B38 /* UIColor+Ext.swift in Sources */,
 				815165591F8E86D5001493FD /* NibLoadable.swift in Sources */,
+				5A2394111FDFC41300B14E5B /* StyleFilterTableViewCell.swift in Sources */,
+				5A2394081FDFBC1F00B14E5B /* UIView+Ext.swift in Sources */,
 				8111336F1F8E307B00604D22 /* FilterViewController.swift in Sources */,
+				5A2394021FDF7C8B00B14E5B /* ModelBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,7 +813,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hPark.ZigZagTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -825,7 +830,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hPark.ZigZagTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

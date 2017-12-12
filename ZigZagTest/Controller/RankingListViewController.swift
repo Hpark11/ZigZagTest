@@ -7,47 +7,44 @@
 //
 
 import UIKit
-import RxSwift
-import RxDataSources
 
-class RankingListViewController: UIViewController, ViewModelBindable {
+class RankingListViewController: UIViewController {
   @IBOutlet weak var filterButton: UIBarButtonItem!
   @IBOutlet weak var shoppingMallTableView: UITableView!
   
-  var week = Variable<String>("")
-  var viewModel: RankingListViewModel!
-  
-  let disposeBag = DisposeBag()
-  let dataSource = RxTableViewSectionedAnimatedDataSource<ShopSection>()
+  var malls = [ShoppingMall]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configure()
     
-    viewModel.items
-      .bind(to: shoppingMallTableView.rx.items(dataSource: dataSource))
-      .disposed(by: disposeBag)
-  }
-  
-  func bind() {
-    filterButton.rx.action = viewModel.filterAction
-    APIService.week.bind(to: week).disposed(by: disposeBag)
-  }
-  
-  private func configure() {
-    shoppingMallTableView.register(ShoppingMallTableViewCell.self)
-    shoppingMallTableView.estimatedRowHeight = 64
+    shoppingMallTableView.delegate = self
+    shoppingMallTableView.dataSource = self
     shoppingMallTableView.separatorStyle = .none
+    shoppingMallTableView.register(ShoppingMallTableViewCell.self)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    APIService().request(ShoppingMall.list) { result in
+      if let list = result {
+        self.malls = list
+        self.shoppingMallTableView.reloadData()
+      }
+    }
+  }
+  
+  @IBAction func onOpenFilter(_ sender: Any) {
+    performSegue(withIdentifier: "openFilter", sender: nil)
+  }
+}
 
-    dataSource.titleForHeaderInSection = { [weak self] _ in
-      guard let base = self else { return "" }
-      return "\(base.week.value)차 랭킹"
-    }
-    
-    dataSource.configureCell = { data, tableView, indexPath, shop in
-      let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ShoppingMallTableViewCell
-      cell.configure(shop: shop, index: indexPath.row)
-      return cell
-    }
+extension RankingListViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return malls.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ShoppingMallTableViewCell
+    cell.configure(shop: malls[indexPath.row], index: indexPath.row)
+    return cell
   }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxDataSources
 
 struct ShoppingMall {
   let name: String
@@ -33,15 +32,22 @@ extension ShoppingMall {
   }
 }
 
-extension ShoppingMall: IdentifiableType, Equatable {
-  var identity: String {
-    return url
-  }
-  
+extension ShoppingMall {
+  static let list = ModelBase<[ShoppingMall]>(path: "shopList", parser: { json in
+    guard let dict = json as? [String: AnyObject], let list = dict["list"] as? [[String: Any]] else {
+      return nil
+    }
+    return list.flatMap(ShoppingMall.init)
+  })
+}
+
+extension ShoppingMall: Equatable {
   static func ==(lhs: ShoppingMall, rhs: ShoppingMall) -> Bool {
     return lhs.url == rhs.url
   }
 }
+
+
 
 
 
