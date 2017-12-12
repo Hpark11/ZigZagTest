@@ -27,7 +27,6 @@ enum Stage {
     case show(Show)
     case modal(Modal)
   }
-
 }
 
 extension Stage {
