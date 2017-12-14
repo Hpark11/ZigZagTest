@@ -10,11 +10,14 @@ import UIKit
 
 class FilterViewController: UIViewController {
   
+  // 멤버변수 표기 활성화 + m
   @IBOutlet weak var initializeButton: UIBarButtonItem!
   @IBOutlet weak var confirmButton: UIButton!
   @IBOutlet weak var cancelButton: UIBarButtonItem!
   @IBOutlet weak var filterTableView: UITableView!
   
+  
+  // 필터의 접근할 개체 구분하기 위해 접근제어 추가
   var filter = FilterManager.shared.getFilter()
   
   override func viewDidLoad() {
@@ -29,6 +32,7 @@ class FilterViewController: UIViewController {
     filterTableView.register(StyleFilterTableViewCell.self)
   }
   
+  // 메소드 명칭 좀더 구체화 (하려고 하는 행동에 대한 더욱더 명확한 정의 필요)
   @IBAction func onInitialized(_ sender: Any) {
     filter.clear()
     filterTableView.reloadData()
@@ -42,6 +46,7 @@ class FilterViewController: UIViewController {
     FilterManager.shared.setFilter(filter)
     dismiss(animated: true, completion: nil)
   }
+  /////////////////////////////////////////////////////////
 }
 
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource {

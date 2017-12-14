@@ -10,6 +10,7 @@ import UIKit
 
 let imageCache: NSCache<NSString, UIImage> = NSCache()
 
+// 메모리 릭이 일어날 수 있는 경우와 다른 이미지가 들어갈 수 있는 경우 파악하라
 class DownloadableImageView: UIImageView {
   var imageUrl: String = "" {
     didSet { loadImage(from: imageUrl) }

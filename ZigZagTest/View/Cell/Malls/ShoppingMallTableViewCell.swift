@@ -30,7 +30,9 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   func configure(shop: ShoppingMall, index: Int) {
     rankLabel.text = "\(index + 1)"
     shopNameLabel.text = shop.name
-    ageLabel.text = FilterManager.shared.getRepresentativeAgesData(shop.age)    
+    ageLabel.text = FilterManager.shared.getRepresentativeAgesData(shop.age)
+    
+    // 왜쓴거지.. 수정하라
     styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
       guard let label = views as? PaddedLabel, shop.style.count > offset else { return }
       configureStyleLabel(name: shop.style[offset], label: label)

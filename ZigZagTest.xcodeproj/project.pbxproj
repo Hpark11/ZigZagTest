@@ -263,6 +263,7 @@
 		811133671F8E2D5300604D22 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				815165511F8E8537001493FD /* Filter */,
 				817BFCB61F9110D800B9ABB0 /* APIService.swift */,
 			);
 			path = Service;
@@ -273,7 +274,6 @@
 			children = (
 				813F4C7E1F919B0600050413 /* zigzagRes */,
 				813F4C811F91A7D400050413 /* Assets.xcassets */,
-				815165511F8E8537001493FD /* Filter */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
