@@ -15,7 +15,7 @@ class FilterViewController: UIViewController {
   @IBOutlet weak var cancelButton: UIBarButtonItem!
   @IBOutlet weak var filterTableView: UITableView!
   
-  var filter = FilterManager.shared.getFilterSet()
+  var filter = FilterManager.shared.getFilter()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,7 +39,7 @@ class FilterViewController: UIViewController {
   }
   
   @IBAction func onConfirmed(_ sender: Any) {
-    FilterManager.shared.setFilterSet(filter)
+    FilterManager.shared.setFilter(filter)
     dismiss(animated: true, completion: nil)
   }
 }

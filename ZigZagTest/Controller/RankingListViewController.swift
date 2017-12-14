@@ -33,7 +33,7 @@ class RankingListViewController: UIViewController {
     APIService().request(ShoppingMall.list) { [unowned self] result in
       guard let shops = result else { return }
       
-      let set = FilterManager.shared.getFilterSet()
+      let set = FilterManager.shared.getFilter()
       self.malls = set.isInitialized ? shops : shops
         .filter { set.filtered((key: Filter.Key.age, value: $0.age)) }
         .filter { set.filtered((key: Filter.Key.style, value: $0.style)) }

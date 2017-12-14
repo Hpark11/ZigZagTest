@@ -38,7 +38,7 @@ struct FilterManager {
   }
   
   // Read And Write FilterSet
-  func getFilterSet() -> Filter {
+  func getFilter() -> Filter {
     if let data = UserDefaults.standard.object(forKey: identifier) as? [String: Any],
       let set = Filter(data: data) {
       return set
@@ -47,7 +47,7 @@ struct FilterManager {
     }
   }
   
-  func setFilterSet(_ filterSet: Filter) {
+  func setFilter(_ filterSet: Filter) {
     UserDefaults.standard.set(filterSet.exposed, forKey: identifier)
   }
   
