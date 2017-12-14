@@ -8,8 +8,8 @@
 
 import Foundation
 
-class FilterSet {
-  typealias Key = Filter.Category
+class Filter {
+  typealias Key = FilterManager.Category
   
   private var ages: [Int]
   private var styles: Set<String>
@@ -48,13 +48,12 @@ class FilterSet {
     return data.reduce(0) { styles.contains($1) ? $0 + 1 : $0 }
   }
   
-  
-//  public func filtered(_ s: Setter) -> Bool {
-//    switch s.key {
-//    case .age: return filteredAge(s.value as! [Int])
-//    case .style: return filteredStyles(s.value as! [String])
-//    }
-//  }
+  public func filtered(_ s: Setter) -> Bool {
+    switch s.key {
+    case .age: return filteredAge(s.value as! [Int])
+    case .style: return filteredStyles(s.value as! [String])
+    }
+  }
   
   private func filteredAge(_ data: [Int]) -> Bool {
     if !ages.contains(1) { return true }
@@ -68,12 +67,12 @@ class FilterSet {
     return false
   }
   
-//  public func setFilterComponents(_ s: Setter) {
-//    switch s.key {
-//    case .age: age(s.value as! Int)
-//    case .style: style(s.value as! String)
-//    }
-//  }
+  public func setFilterComponents(_ s: Setter) {
+    switch s.key {
+    case .age: age(s.value as! Int)
+    case .style: style(s.value as! String)
+    }
+  }
   
   private func age(_ index: Int) {
     ages[index] = ages[index] == 1 ? 0 : 1

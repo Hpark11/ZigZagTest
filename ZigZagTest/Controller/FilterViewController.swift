@@ -15,6 +15,8 @@ class FilterViewController: UIViewController {
   @IBOutlet weak var cancelButton: UIBarButtonItem!
   @IBOutlet weak var filterTableView: UITableView!
   
+  var filter = FilterManager.shared.getFilterSet()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -25,6 +27,20 @@ class FilterViewController: UIViewController {
     filterTableView.estimatedRowHeight = 180
     filterTableView.register(AgeFilterTableViewCell.self)
     filterTableView.register(StyleFilterTableViewCell.self)
+  }
+  
+  @IBAction func onInitialized(_ sender: Any) {
+    filter.clear()
+    filterTableView.reloadData()
+  }
+  
+  @IBAction func onCanceled(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func onConfirmed(_ sender: Any) {
+    FilterManager.shared.setFilterSet(filter)
+    dismiss(animated: true, completion: nil)
   }
 }
 
@@ -47,8 +63,14 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
-    case 0: return tableView.dequeueReusableCell(forIndexPath: indexPath) as AgeFilterTableViewCell
-    default: return tableView.dequeueReusableCell(forIndexPath: indexPath) as StyleFilterTableViewCell
+    case 0:
+      let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AgeFilterTableViewCell
+      cell.configure(filter: filter)
+      return cell
+    default:
+      let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as StyleFilterTableViewCell
+      cell.configure(filter: filter)
+      return cell
     }
   }
 }

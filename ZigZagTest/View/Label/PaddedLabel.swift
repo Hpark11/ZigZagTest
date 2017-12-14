@@ -30,10 +30,10 @@ class PaddedLabel: UILabel {
   }
   
   func setPadding(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat){
-    self.topInset = top
-    self.bottomInset = bottom
-    self.leftInset = left
-    self.rightInset = right
+    topInset = top
+    bottomInset = bottom
+    leftInset = left
+    rightInset = right
     let insets: UIEdgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
     super.drawText(in: UIEdgeInsetsInsetRect(self.frame, insets))
   }

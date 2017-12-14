@@ -13,6 +13,7 @@ class RankingListViewController: UIViewController {
   @IBOutlet weak var shoppingMallTableView: UITableView!
   
   var malls = [ShoppingMall]()
+  var week = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,20 +25,38 @@ class RankingListViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    APIService().request(ShoppingMall.list) { result in
-      if let list = result {
-        self.malls = list
-        self.shoppingMallTableView.reloadData()
-      }
+    APIService().request(ShoppingMall.week) { [unowned self] result in
+      guard let week = result else { return }
+      self.week = week
+    }
+    
+    APIService().request(ShoppingMall.list) { [unowned self] result in
+      guard let shops = result else { return }
+      
+      let set = FilterManager.shared.getFilterSet()
+      self.malls = set.isInitialized ? shops : shops
+        .filter { set.filtered((key: Filter.Key.age, value: $0.age)) }
+        .filter { set.filtered((key: Filter.Key.style, value: $0.style)) }
+        .sorted { set.matches($0.style) == set.matches($1.style) ? $0.score > $1.score : set.matches($0.style) > set.matches($1.style) }
+      self.shoppingMallTableView.reloadData()
     }
   }
-  
+
   @IBAction func onOpenFilter(_ sender: Any) {
     performSegue(withIdentifier: "openFilter", sender: nil)
   }
 }
 
 extension RankingListViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return week
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return malls.count
   }

@@ -29,10 +29,10 @@
 		815165541F8E855E001493FD /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165531F8E855E001493FD /* UITableView+Ext.swift */; };
 		815165561F8E85CA001493FD /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165551F8E85CA001493FD /* Identifiable.swift */; };
 		815165591F8E86D5001493FD /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165581F8E86D5001493FD /* NibLoadable.swift */; };
-		815165631F8E8E15001493FD /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165621F8E8E15001493FD /* Filter.swift */; };
+		815165631F8E8E15001493FD /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815165621F8E8E15001493FD /* FilterManager.swift */; };
 		8167653B1F926ADD006DD5EE /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167653A1F926ADD006DD5EE /* PaddedLabel.swift */; };
 		817BFCB01F8F35EB00B9ABB0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */; };
-		817BFCB41F8FCAD300B9ABB0 /* FilterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCB31F8FCAD300B9ABB0 /* FilterSet.swift */; };
+		817BFCB41F8FCAD300B9ABB0 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCB31F8FCAD300B9ABB0 /* Filter.swift */; };
 		817BFCB71F9110D800B9ABB0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817BFCB61F9110D800B9ABB0 /* APIService.swift */; };
 		81E4ABC51F93B108005C6B38 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4ABC41F93B108005C6B38 /* UIColor+Ext.swift */; };
 		8DFF25016B95C92E11AD9A73 /* Pods_ZigZagTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F544C0FEA2375DF12657821D /* Pods_ZigZagTestTests.framework */; };
@@ -90,10 +90,10 @@
 		815165531F8E855E001493FD /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		815165551F8E85CA001493FD /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		815165581F8E86D5001493FD /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		815165621F8E8E15001493FD /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		815165621F8E8E15001493FD /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		8167653A1F926ADD006DD5EE /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		817BFCB31F8FCAD300B9ABB0 /* FilterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSet.swift; sourceTree = "<group>"; };
+		817BFCB31F8FCAD300B9ABB0 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		817BFCB61F9110D800B9ABB0 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		81E4ABC41F93B108005C6B38 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		AE959E954BB0939EE7108221 /* Pods-ZigZagTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestUITests/Pods-ZigZagTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -271,8 +271,9 @@
 		813F4C801F91A7D400050413 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				813F4C811F91A7D400050413 /* Assets.xcassets */,
 				813F4C7E1F919B0600050413 /* zigzagRes */,
+				813F4C811F91A7D400050413 /* Assets.xcassets */,
+				815165511F8E8537001493FD /* Filter */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -288,7 +289,6 @@
 		8151654D1F8E5940001493FD /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				815165511F8E8537001493FD /* Filter */,
 				815165501F8E7AD2001493FD /* Protocol */,
 			);
 			path = Util;
@@ -306,8 +306,8 @@
 		815165511F8E8537001493FD /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				815165621F8E8E15001493FD /* Filter.swift */,
-				817BFCB31F8FCAD300B9ABB0 /* FilterSet.swift */,
+				815165621F8E8E15001493FD /* FilterManager.swift */,
+				817BFCB31F8FCAD300B9ABB0 /* Filter.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -650,8 +650,8 @@
 				5A23940D1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift in Sources */,
 				8167653B1F926ADD006DD5EE /* PaddedLabel.swift in Sources */,
 				811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */,
-				817BFCB41F8FCAD300B9ABB0 /* FilterSet.swift in Sources */,
-				815165631F8E8E15001493FD /* Filter.swift in Sources */,
+				817BFCB41F8FCAD300B9ABB0 /* Filter.swift in Sources */,
+				815165631F8E8E15001493FD /* FilterManager.swift in Sources */,
 				8111336D1F8E306300604D22 /* RankingListViewController.swift in Sources */,
 				81E4ABC51F93B108005C6B38 /* UIColor+Ext.swift in Sources */,
 				815165591F8E86D5001493FD /* NibLoadable.swift in Sources */,

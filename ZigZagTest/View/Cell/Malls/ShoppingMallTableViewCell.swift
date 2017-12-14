@@ -22,15 +22,15 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   
   func configureStyleLabel(name: String, label: PaddedLabel) {
     label.text = name
-    label.layer.borderColor = Filter.styles[name]!.bd.cgColor
-    label.textColor = Filter.styles[name]!.bd
-    label.backgroundColor = Filter.styles[name]!.bg
+    label.layer.borderColor = FilterManager.shared.styles[name]!.bd.cgColor
+    label.textColor = FilterManager.shared.styles[name]!.bd
+    label.backgroundColor = FilterManager.shared.styles[name]!.bg
   }
   
   func configure(shop: ShoppingMall, index: Int) {
     rankLabel.text = "\(index + 1)"
     shopNameLabel.text = shop.name
-    ageLabel.text = Filter.getRepresentativeAgesData(shop.age)    
+    ageLabel.text = FilterManager.shared.getRepresentativeAgesData(shop.age)    
     styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
       guard let label = views as? PaddedLabel, shop.style.count > offset else { return }
       configureStyleLabel(name: shop.style[offset], label: label)

@@ -8,9 +8,11 @@
 
 import UIKit.UIColor
 
-struct Filter {
-  static let shared = Filter()
-  static let identifier = "filter"
+typealias Setter = (key: FilterManager.Category, value: Any)
+
+struct FilterManager {
+  static let shared = FilterManager()
+  let identifier = "filter"
   
   enum Category: String {
     typealias Identity = String
@@ -28,7 +30,7 @@ struct Filter {
     }
   }
   
-  static func keyColor(_ type: Category) -> UIColor {
+  func keyColor(_ type: Category) -> UIColor {
     switch type {
     case .age: return .black
     case .style: return .purple
@@ -36,20 +38,20 @@ struct Filter {
   }
   
   // Read And Write FilterSet
-  static func getFilterSet() -> FilterSet {
-    if let data = UserDefaults.standard.object(forKey: Filter.identifier) as? [String: Any],
-      let set = FilterSet(data: data) {
+  func getFilterSet() -> Filter {
+    if let data = UserDefaults.standard.object(forKey: identifier) as? [String: Any],
+      let set = Filter(data: data) {
       return set
     } else {
-      return FilterSet()
+      return Filter()
     }
   }
   
-  static func setFilterSet(_ filterSet: FilterSet) {
-    UserDefaults.standard.set(filterSet.exposed, forKey: Filter.identifier)
+  func setFilterSet(_ filterSet: Filter) {
+    UserDefaults.standard.set(filterSet.exposed, forKey: identifier)
   }
   
-  static func getRepresentativeAgesData(_ ages: [Int]) -> String {
+  func getRepresentativeAgesData(_ ages: [Int]) -> String {
     var res = [String?](repeating: "", count: 3)
     res[0] = ages[0] == 1 ? "10대" : nil
     res[1] = ages[1...3].flatMap {$0 == 1 ? 1 : nil}.count > 0 ? "20대" : nil
@@ -69,7 +71,7 @@ struct Filter {
   ]
 
   // bg for Background, bd for Border Color
-  static let styles: [String: (bg: UIColor, bd: UIColor)] = [
+  let styles: [String: (bg: UIColor, bd: UIColor)] = [
     "페미닌" : (bg: UIColor.Flat.Green.fern, bd: UIColor.darkGray),
     "모던시크" : (bg: UIColor.Flat.Green.mountain, bd: UIColor.darkGray),
     "심플베이직" : (bg: UIColor.Flat.Blue.picton, bd: UIColor.Flat.Blue.whale),
