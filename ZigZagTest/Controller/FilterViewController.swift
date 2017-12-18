@@ -8,45 +8,52 @@
 
 import UIKit
 
+// 멤버변수 표기 활성화 + m
+// 필터의 접근할 개체 구분하기 위해 접근제어 추가
+// 메소드 명칭 좀더 구체화 (하려고 하는 행동에 대한 더욱더 명확한 정의 필요)
 class FilterViewController: UIViewController {
   
-  // 멤버변수 표기 활성화 + m
-  @IBOutlet weak var initializeButton: UIBarButtonItem!
-  @IBOutlet weak var confirmButton: UIButton!
-  @IBOutlet weak var cancelButton: UIBarButtonItem!
-  @IBOutlet weak var filterTableView: UITableView!
+  @IBOutlet weak var mFilterTableView: UITableView!
   
+  private var mAgeConditions: [Int]       = FilterService.shared.conditionsByAges
+  private var mStyleConditions: [String]  = FilterService.shared.conditionsByStyles
   
-  // 필터의 접근할 개체 구분하기 위해 접근제어 추가
-  var filter = FilterManager.shared.getFilter()
+  weak var delegate: RankingListViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    filterTableView.delegate = self
-    filterTableView.dataSource = self
-    
-    filterTableView.rowHeight = UITableViewAutomaticDimension
-    filterTableView.estimatedRowHeight = 180
-    filterTableView.register(AgeFilterTableViewCell.self)
-    filterTableView.register(StyleFilterTableViewCell.self)
+    mFilterTableView.register(AgeFilterTableViewCell.self)
+    mFilterTableView.register(StyleFilterTableViewCell.self)
   }
   
-  // 메소드 명칭 좀더 구체화 (하려고 하는 행동에 대한 더욱더 명확한 정의 필요)
-  @IBAction func onInitialized(_ sender: Any) {
-    filter.clear()
-    filterTableView.reloadData()
+  @IBAction func initializeFilter(_ sender: Any) {
+    mAgeConditions = mAgeConditions.map {_ in 0}
+    mStyleConditions = []
+    mFilterTableView.reloadData()
   }
   
-  @IBAction func onCanceled(_ sender: Any) {
+  @IBAction func cancelFilter(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
   
-  @IBAction func onConfirmed(_ sender: Any) {
-    FilterManager.shared.setFilter(filter)
-    dismiss(animated: true, completion: nil)
+  @IBAction func confirmFilterConditions(_ sender: Any) {
+    FilterService.shared.setFilter(ages: mAgeConditions, styles: mStyleConditions)
+    dismiss(animated: true) { self.delegate?.applyFilter() }
   }
-  /////////////////////////////////////////////////////////
+  
+  func checkAgeFilter(_ sender: RoundedButton) {
+    mAgeConditions[sender.tag] = sender.isChecked ? 1 : 0
+  }
+  
+  func checkStyleFilter(_ sender: RoundedButton) {
+    guard let text = sender.titleLabel?.text else { return }
+    if let index = mStyleConditions.index(of: text) {
+      mStyleConditions.remove(at: index)
+    } else {
+      mStyleConditions.append(text)
+    }
+  }
 }
 
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,11 +77,11 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     switch indexPath.section {
     case 0:
       let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AgeFilterTableViewCell
-      cell.configure(filter: filter)
+      cell.configure(conditions: mAgeConditions, check: checkAgeFilter)
       return cell
     default:
       let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as StyleFilterTableViewCell
-      cell.configure(filter: filter)
+      cell.configure(conditions: mStyleConditions, check: checkStyleFilter)
       return cell
     }
   }

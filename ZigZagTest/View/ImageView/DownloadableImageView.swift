@@ -24,7 +24,12 @@ class DownloadableImageView: UIImageView {
       return
     }
     
-    URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+    let session = URLSession(configuration: .ephemeral)
+    defer {
+      session.finishTasksAndInvalidate()
+    }
+    
+    let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
       guard error == nil else {
         print(error as Any)
         return
@@ -39,7 +44,10 @@ class DownloadableImageView: UIImageView {
         })
         if let img = imageData { imageCache.setObject(img, forKey: from as NSString) }
       })
-    }).resume()
+    })
+    task.resume()
+    
+    //URLSession.finishTasksAndInvalidate(.shared)
   }
   
 }

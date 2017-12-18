@@ -8,11 +8,29 @@
 
 import UIKit.UIColor
 
-typealias Setter = (key: FilterManager.Category, value: Any)
+typealias Setter = (key: FilterService.Category, value: Any)
+typealias FilterKey = FilterService.Category
 
-struct FilterManager {
-  static let shared = FilterManager()
+final class FilterService {
+  static let shared = FilterService()
   let identifier = "filter"
+
+  var conditionsByAges: [Int]
+  var conditionsByStyles: [String]
+  
+  init() {
+    if let ages = UserDefaults.standard.array(forKey: FilterKey.age.val) as? [Int] {
+      conditionsByAges = ages
+    } else {
+      conditionsByAges = [Int](repeating: 0, count: self.ages.count)
+    }
+    
+    if let styles = UserDefaults.standard.array(forKey: FilterKey.style.val) as? [String] {
+      conditionsByStyles = styles
+    } else {
+      conditionsByStyles = [String]()
+    }
+  }
   
   enum Category: String {
     typealias Identity = String
@@ -20,6 +38,39 @@ struct FilterManager {
     case style = "styles"
     
     var val: String { return self.rawValue }
+  }
+  
+  private func filterByAges(_ mall: ShoppingMall) -> Bool {
+    for (i, e) in conditionsByAges.enumerated() {if mall.age[i] == e && e == 1 { return true }}
+    return false
+  }
+  
+  private func filterByStyles(_ mall: ShoppingMall) -> Bool {
+    for s in conditionsByStyles {if mall.style.contains(s) { return true }}
+    return false
+  }
+  
+  private func numberOfStyleMatches(_ styles: [String]) -> Int {
+    return styles.reduce(0) {self.conditionsByStyles.contains($1) ? $0 + 1 : $0}
+  }
+  
+  func filteredMalls(malls: [ShoppingMall]) -> [ShoppingMall] {
+    let result: [ShoppingMall]
+    
+    switch (!conditionsByAges.contains(1), conditionsByStyles.count == 0) {
+    case (true, true): result = malls
+    case (true, false): result = malls.filter(filterByStyles)
+    case (false, true): result = malls.filter(filterByAges)
+    default: result = malls.filter(filterByAges).filter(filterByStyles)
+    }
+    
+    return result.sorted { lhs, rhs in
+      if numberOfStyleMatches(lhs.style) == numberOfStyleMatches(rhs.style) {
+        return lhs.score > rhs.score
+      } else {
+        return numberOfStyleMatches(lhs.style) > numberOfStyleMatches(rhs.style)
+      }
+    }
   }
   
   // Filter Environment
@@ -37,18 +88,12 @@ struct FilterManager {
     }
   }
   
-  // Read And Write FilterSet
-  func getFilter() -> Filter {
-    if let data = UserDefaults.standard.object(forKey: identifier) as? [String: Any],
-      let set = Filter(data: data) {
-      return set
-    } else {
-      return Filter()
-    }
-  }
-  
-  func setFilter(_ filterSet: Filter) {
-    UserDefaults.standard.set(filterSet.exposed, forKey: identifier)
+  func setFilter(ages: [Int], styles: [String]) {
+    conditionsByAges = ages
+    conditionsByStyles = styles
+    
+    UserDefaults.standard.set(ages, forKey: FilterKey.age.val)
+    UserDefaults.standard.set(styles, forKey: FilterKey.style.val)
   }
   
   func getRepresentativeAgesData(_ ages: [Int]) -> String {
@@ -87,5 +132,4 @@ struct FilterManager {
     "럭셔리" : (bg: UIColor.Flat.Green.fern, bd: UIColor.Flat.Blue.denim),
     "헐리웃스타일" : (bg: UIColor.Flat.Blue.picton, bd: UIColor.Flat.Violet.gem)
   ]
-
 }

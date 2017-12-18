@@ -22,17 +22,18 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   
   func configureStyleLabel(name: String, label: PaddedLabel) {
     label.text = name
-    label.layer.borderColor = FilterManager.shared.styles[name]!.bd.cgColor
-    label.textColor = FilterManager.shared.styles[name]!.bd
-    label.backgroundColor = FilterManager.shared.styles[name]!.bg
+    label.layer.borderColor = FilterService.shared.styles[name]!.bd.cgColor
+    label.textColor = FilterService.shared.styles[name]!.bd
+    label.backgroundColor = FilterService.shared.styles[name]!.bg
   }
   
   func configure(shop: ShoppingMall, index: Int) {
     rankLabel.text = "\(index + 1)"
     shopNameLabel.text = shop.name
-    ageLabel.text = FilterManager.shared.getRepresentativeAgesData(shop.age)
+    ageLabel.text = FilterService.shared.getRepresentativeAgesData(shop.age)
     
     // 왜쓴거지.. 수정하라
+    // 수정부터 해주세요
     styleStackView.arrangedSubviews.enumerated().forEach { offset, views in
       guard let label = views as? PaddedLabel, shop.style.count > offset else { return }
       configureStyleLabel(name: shop.style[offset], label: label)
@@ -50,7 +51,7 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   override func awakeFromNib() {
     shopImageView.layer.cornerRadius = shopImageView.frame.height / 2
     shopImageView.clipsToBounds = true
-    ageLabel.layer.borderColor = UIColor.lightGray.cgColor
+    //ageLabel.layer.borderColor = UIColor.lightGray.cgColor
   }
   
   override func prepareForReuse() {

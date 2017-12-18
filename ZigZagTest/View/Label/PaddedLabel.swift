@@ -8,16 +8,23 @@
 
 import UIKit
 
+@IBDesignable
 class PaddedLabel: UILabel {
-  var topInset: CGFloat = 0.0
-  var bottomInset: CGFloat = 0.0
-  var leftInset: CGFloat = 4.0
-  var rightInset: CGFloat = 4.0
+  @IBInspectable var topInset: CGFloat = 0.0
+  @IBInspectable var bottomInset: CGFloat = 0.0
+  @IBInspectable var leftInset: CGFloat = 4.0
+  @IBInspectable var rightInset: CGFloat = 4.0
+  
+  @IBInspectable var borderWidth: CGFloat = 0.4
+  @IBInspectable var cornerRadius: CGFloat = 0
+  @IBInspectable var borderColor: UIColor = .lightGray
   
   override func drawText(in rect: CGRect) {
-    self.layer.cornerRadius = 4
-    self.layer.borderWidth = 0.4
-    self.layer.masksToBounds = true
+    layer.borderWidth = borderWidth
+    layer.borderColor = borderColor.cgColor
+    layer.cornerRadius = cornerRadius
+    
+    layer.masksToBounds = true
     let insets: UIEdgeInsets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
     super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
   }
@@ -27,24 +34,6 @@ class PaddedLabel: UILabel {
     contentSize.height += topInset + bottomInset
     contentSize.width += leftInset + rightInset
     return contentSize
-  }
-  
-  func setPadding(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat){
-    topInset = top
-    bottomInset = bottom
-    leftInset = left
-    rightInset = right
-    let insets: UIEdgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
-    super.drawText(in: UIEdgeInsetsInsetRect(self.frame, insets))
-  }
-  
-  func roundCorners(_ corner: UIRectCorner,_ radii: CGFloat) {
-    let maskLayer = CAShapeLayer()
-    maskLayer.frame = self.layer.bounds
-    maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corner, cornerRadii: CGSize(width: radii, height: radii)).cgPath
-    
-    self.layer.mask = maskLayer
-    layer.masksToBounds = true
   }
 }
 
