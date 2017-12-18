@@ -25,28 +25,22 @@ class RoundedButton: UIButton {
     super.init(frame: .zero)
     
     backgroundColor = .white
-    self.tintColor = self.color
-    self.layer.borderColor = self.color.cgColor
-    self.layer.borderWidth = 1.0
-    self.layer.cornerRadius = 8
+    tintColor = self.color
+    layer.borderColor = self.color.cgColor
+    layer.borderWidth = 1.0
+    layer.cornerRadius = 8
     
-    self.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-    self.titleLabel?.adjustsFontSizeToFitWidth = true
-    self.setTitle(title, for: .normal)
-    self.setTitleColor(self.color, for: .normal)
-    self.isUserInteractionEnabled = true
+    titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    titleLabel?.adjustsFontSizeToFitWidth = true
+    setTitle(title, for: .normal)
+    setTitleColor(self.color, for: .normal)
+    isUserInteractionEnabled = true
   }
   
   private func setSelectedState(_ b: Bool) {
-    if b == true {
-      self.backgroundColor = self.color
-      self.tintColor = self.color
-      self.setTitleColor(.white, for: .normal)
-    } else {
-      self.backgroundColor = UIColor.white
-      self.tintColor = UIColor.white
-      self.setTitleColor(self.color, for: .normal)
-    }
+    backgroundColor = b == true ? color : UIColor.white
+    tintColor = b == true ? color : UIColor.white
+    setTitleColor(b == true ? .white : color, for: .normal)
   }
 }
 

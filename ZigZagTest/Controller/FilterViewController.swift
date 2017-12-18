@@ -7,52 +7,81 @@
 //
 
 import UIKit
-import RxSwift
-import RxDataSources
 
-class FilterViewController: UIViewController, ViewModelBindable {
+// 멤버변수 표기 활성화 + m
+// 필터의 접근할 개체 구분하기 위해 접근제어 추가
+// 메소드 명칭 좀더 구체화 (하려고 하는 행동에 대한 더욱더 명확한 정의 필요)
+class FilterViewController: UIViewController {
   
-  @IBOutlet weak var initializeButton: UIBarButtonItem!
-  @IBOutlet weak var confirmButton: UIButton!
-  @IBOutlet weak var cancelButton: UIBarButtonItem!
-  @IBOutlet weak var filterTableView: UITableView!
+  @IBOutlet weak var mFilterTableView: UITableView!
   
-  var viewModel: FilterViewModel!
-  let disposeBag = DisposeBag()
-  let dataSource = RxTableViewSectionedAnimatedDataSource<FilterSection>()
+  private var mAgeConditions: [Int]       = FilterService.shared.conditionsByAges
+  private var mStyleConditions: [String]  = FilterService.shared.conditionsByStyles
+  
+  weak var delegate: RankingListViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configure()
     
-    viewModel.items
-      .bind(to: filterTableView.rx.items(dataSource: dataSource))
-      .disposed(by: disposeBag)
+    mFilterTableView.register(AgeFilterTableViewCell.self)
+    mFilterTableView.register(StyleFilterTableViewCell.self)
   }
-
-  func bind() {
-    cancelButton.rx.action = viewModel.cancelAction
-    confirmButton.rx.action = viewModel.confirmAction
-    initializeButton.rx.bind(to: viewModel.initializeAction) { [weak self] _ in
-      if let base = self { base.filterTableView.reloadData() }
+  
+  @IBAction func initializeFilter(_ sender: Any) {
+    mAgeConditions = mAgeConditions.map {_ in 0}
+    mStyleConditions = []
+    mFilterTableView.reloadData()
+  }
+  
+  @IBAction func cancelFilter(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func confirmFilterConditions(_ sender: Any) {
+    FilterService.shared.setFilter(ages: mAgeConditions, styles: mStyleConditions)
+    dismiss(animated: true) { self.delegate?.applyFilter() }
+  }
+  
+  func checkAgeFilter(_ sender: RoundedButton) {
+    mAgeConditions[sender.tag] = sender.isChecked ? 1 : 0
+  }
+  
+  func checkStyleFilter(_ sender: RoundedButton) {
+    guard let text = sender.titleLabel?.text else { return }
+    if let index = mStyleConditions.index(of: text) {
+      mStyleConditions.remove(at: index)
+    } else {
+      mStyleConditions.append(text)
     }
   }
+}
 
-  private func configure() {
-    filterTableView.register(FilterTableViewCell.self)
-    filterTableView.rowHeight = UITableViewAutomaticDimension
-    filterTableView.estimatedRowHeight = 100
-    filterTableView.separatorStyle = .none
-    
-    dataSource.titleForHeaderInSection = { data, index in
-      data.sectionModels[index].model
+extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    switch section {
+    case 0: return "Age"
+    default: return "Style"
     }
-    
-    dataSource.configureCell = { [weak self] data, tableView, indexPath, type in
-      let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as FilterTableViewCell
-      if let base = self {
-        cell.configure(type: type, update: base.viewModel.selectAction, set: base.viewModel.filterSet.exposed)
-      }
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    switch indexPath.section {
+    case 0:
+      let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AgeFilterTableViewCell
+      cell.configure(conditions: mAgeConditions, check: checkAgeFilter)
+      return cell
+    default:
+      let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as StyleFilterTableViewCell
+      cell.configure(conditions: mStyleConditions, check: checkStyleFilter)
       return cell
     }
   }

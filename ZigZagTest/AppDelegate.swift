@@ -14,10 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    guard let window = window else { fatalError("There is no Actual UI Window") }
-    let navigator = Navigator(window: window)
-    let rankingListViewModel = RankingListViewModel(navigator: navigator)
-    _ = navigator.navigate(to: Stage.ranking(rankingListViewModel), type: .root)
     return true
   }
 
