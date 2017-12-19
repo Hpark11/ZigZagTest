@@ -12,7 +12,7 @@ let imageCache: NSCache<NSString, UIImage> = NSCache()
 
 class DownloadableImageView: UIImageView {
   
-  let session = URLSession(configuration: .ephemeral)
+  var session = URLSession(configuration: .ephemeral)
   var imageUrl: String = "" {
     didSet { loadImage(from: imageUrl) }
   }
@@ -25,11 +25,9 @@ class DownloadableImageView: UIImageView {
       return
     }
     
-    
-    defer {
-      session.finishTasksAndInvalidate()
-    }
+    defer { session.finishTasksAndInvalidate() }
 
+    session = URLSession(configuration: .ephemeral)
     let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
       guard error == nil else {
         print(error as Any)
