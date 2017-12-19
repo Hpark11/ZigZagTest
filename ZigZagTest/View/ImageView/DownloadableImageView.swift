@@ -13,6 +13,7 @@ let imageCache: NSCache<NSString, UIImage> = NSCache()
 class DownloadableImageView: UIImageView {
   
   var session = URLSession(configuration: .ephemeral)
+  
   var imageUrl: String = "" {
     didSet { loadImage(from: imageUrl) }
   }

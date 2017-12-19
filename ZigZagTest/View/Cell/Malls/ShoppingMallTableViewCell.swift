@@ -52,6 +52,7 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   }
   
   override func prepareForReuse() {
+    mShopImageView.image = nil
     mShopImageView.session.invalidateAndCancel()
     super.prepareForReuse()
   }
