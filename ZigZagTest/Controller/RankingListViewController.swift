@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol RankingListViewControllerDelegate: class {
-  func applyFilter()
-}
-
-class RankingListViewController: UIViewController, RankingListViewControllerDelegate {
+class RankingListViewController: UIViewController {
   
   @IBOutlet weak var mShoppingMallTableView: UITableView!
   
@@ -22,22 +18,22 @@ class RankingListViewController: UIViewController, RankingListViewControllerDele
   
   override func viewDidLoad() {
     super.viewDidLoad()
-  
+
     mShoppingMallTableView.register(ShoppingMallTableViewCell.self)
     
-    APIService().request(ShoppingMall.week) { [unowned self] result in
+    APIService().request(APIService.week) { [unowned self] result in
       guard let week = result else { return }
       self.mWeek = week
     }
     
-    APIService().request(ShoppingMall.list) { [unowned self] result in
+    APIService().request(APIService.list) { [unowned self] result in
       guard let malls = result else { return }
       self.mMallsOrigin = malls
       self.applyFilter()
     }
   }
-
-  func applyFilter() {
+  
+  private func applyFilter() {
     mMalls = FilterService.shared.filteredMalls(malls: mMallsOrigin)
     mShoppingMallTableView.reloadData()
   }
@@ -50,7 +46,7 @@ class RankingListViewController: UIViewController, RankingListViewControllerDele
     if segue.identifier == "openFilter" {
       let nc = segue.destination as! UINavigationController
       guard let vc = nc.viewControllers.first as? FilterViewController else { return }
-      vc.delegate = sender as? RankingListViewControllerDelegate
+      vc.delegate = self
     }
   }
 }
@@ -73,5 +69,11 @@ extension RankingListViewController: UITableViewDelegate, UITableViewDataSource 
     let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ShoppingMallTableViewCell
     cell.configure(shop: mMalls[indexPath.row], index: indexPath.row)
     return cell
+  }
+}
+
+extension RankingListViewController: FilterViewControllerDelegate {
+  func onFilterChanged() {
+    applyFilter()
   }
 }

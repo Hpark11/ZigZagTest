@@ -32,20 +32,6 @@ extension ShoppingMall {
   }
 }
 
-extension ShoppingMall {
-  static let week = ModelBase<String>(path: "shopList", parser: { json in
-    guard let dict = json as? [String: AnyObject], let week = dict["week"] as? String else {return nil}
-    return week
-  })
-  
-  static let list = ModelBase<[ShoppingMall]>(path: "shopList", parser: { json in
-    guard let dict = json as? [String: AnyObject], let list = dict["list"] as? [[String: Any]] else {
-      return nil
-    }
-    return list.flatMap(ShoppingMall.init)
-  })
-}
-
 extension ShoppingMall: Equatable {
   static func ==(lhs: ShoppingMall, rhs: ShoppingMall) -> Bool {
     return lhs.url == rhs.url

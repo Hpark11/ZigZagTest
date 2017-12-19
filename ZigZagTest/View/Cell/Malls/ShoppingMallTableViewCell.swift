@@ -9,7 +9,7 @@
 import UIKit
 
 class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
-
+  
   @IBOutlet weak var mRankLabel: UILabel!
   @IBOutlet weak var mShopImageView: DownloadableImageView!
   @IBOutlet weak var mShopNameLabel: UILabel!
@@ -24,9 +24,9 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   
   func configureStyleLabel(name: String, label: PaddedLabel) {
     label.text = name
-    label.layer.borderColor = FilterService.shared.styles[name]!.bd.cgColor
-    label.textColor = FilterService.shared.styles[name]!.bd
-    label.backgroundColor = FilterService.shared.styles[name]!.bg
+    label.layer.borderColor = FilterService.shared.STYLES[name]!.bd.cgColor
+    label.textColor = FilterService.shared.STYLES[name]!.bd
+    label.backgroundColor = FilterService.shared.STYLES[name]!.bg
   }
   
   func configure(shop: ShoppingMall, index: Int) {
@@ -34,8 +34,10 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
     mShopNameLabel.text = shop.name
     mAgeLabel.text = FilterService.shared.getRepresentativeAgesData(shop.age)
     
-    if let first = shop.style.first {configureStyleLabel(name: first, label: mFirstStyleLabel)}
-    if let second = shop.style.last {configureStyleLabel(name: second, label: mSecondStyleLabel)}
+    if let first = shop.style.first, let second = shop.style.last {
+      configureStyleLabel(name: first, label: mFirstStyleLabel)
+      configureStyleLabel(name: second, label: mSecondStyleLabel)
+    }
   
     let pattern = "(http:\\/\\/www.|www.|http:\\/\\/)([\\w-]+)([\\.\\w\\/]+)"
     let regex = try! NSRegularExpression(pattern: pattern, options: [])

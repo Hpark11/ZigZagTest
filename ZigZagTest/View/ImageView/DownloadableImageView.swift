@@ -38,11 +38,15 @@ class DownloadableImageView: UIImageView {
       DispatchQueue.main.async(execute: {
         let imageData = UIImage(data: data!)
         self.alpha = 0
-        UIView.animate(withDuration: 0.6, animations: {
+        
+        UIView.animate(withDuration: 0.42, animations: {
           self.image = imageData
           self.alpha = 1
         })
-        if let img = imageData { imageCache.setObject(img, forKey: from as NSString) }
+        
+        if let img = imageData {
+          imageCache.setObject(img, forKey: from as NSString)
+        }
       })
     })
     task.resume()

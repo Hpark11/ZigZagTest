@@ -18,7 +18,6 @@ class PaddedLabel: UILabel {
   @IBInspectable var borderWidth: CGFloat = 0.4
   @IBInspectable var cornerRadius: CGFloat = 0
   @IBInspectable var borderColor: UIColor = .lightGray
-  
   @IBInspectable var masksToBounds: Bool = true
   
   override func drawText(in rect: CGRect) {

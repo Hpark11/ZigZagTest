@@ -36,11 +36,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00대" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zd-pT-gJQ" userLabel="Age" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
-                        <rect key="frame" x="112" y="39" width="32" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="XkZ-VP-e2j"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00대" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zd-pT-gJQ" userLabel="Age" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
+                        <rect key="frame" x="112" y="37.5" width="32" height="17.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -53,6 +50,12 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r7T-9c-iNt" userLabel="Mall Image" customClass="DownloadableImageView" customModule="ZigZagTest" customModuleProvider="target">
@@ -63,7 +66,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvi-nM-zk8" userLabel="Style 1" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
-                        <rect key="frame" x="148" y="38" width="32.5" height="17.5"/>
+                        <rect key="frame" x="148" y="37.5" width="32.5" height="17.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -86,7 +89,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyunsoo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-vM-f0y" userLabel="Style 2" customClass="PaddedLabel" customModule="ZigZagTest" customModuleProvider="target">
-                        <rect key="frame" x="182.5" y="38.5" width="55.5" height="17.5"/>
+                        <rect key="frame" x="182.5" y="38" width="55.5" height="17.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

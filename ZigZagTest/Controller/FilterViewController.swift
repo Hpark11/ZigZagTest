@@ -8,15 +8,17 @@
 
 import UIKit
 
+protocol FilterViewControllerDelegate: class {
+  func onFilterChanged()
+}
 
 class FilterViewController: UIViewController {
+  weak var delegate: FilterViewControllerDelegate?
   
   @IBOutlet weak var mFilterTableView: UITableView!
   
   private var mAgeConditions: [Int]       = FilterService.shared.conditionsByAges
   private var mStyleConditions: [String]  = FilterService.shared.conditionsByStyles
-  
-  weak var delegate: RankingListViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,7 +39,8 @@ class FilterViewController: UIViewController {
   
   @IBAction func confirmFilterConditions(_ sender: Any) {
     FilterService.shared.setFilter(ages: mAgeConditions, styles: mStyleConditions)
-    dismiss(animated: true) { self.delegate?.applyFilter() }
+    delegate?.onFilterChanged()
+    dismiss(animated: true, completion: nil)
   }
   
   func checkAgeFilter(_ sender: RoundedButton) {
@@ -63,14 +66,9 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     }
   }
   
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
-  }
+  func numberOfSections(in tableView: UITableView) -> Int {return 2}
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
-  }
-  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {return 1}
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
     case 0:
