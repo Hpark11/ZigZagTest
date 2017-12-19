@@ -10,8 +10,9 @@ import UIKit
 
 let imageCache: NSCache<NSString, UIImage> = NSCache()
 
-// 메모리 릭이 일어날 수 있는 경우와 다른 이미지가 들어갈 수 있는 경우 파악하라
 class DownloadableImageView: UIImageView {
+  
+  let session = URLSession(configuration: .ephemeral)
   var imageUrl: String = "" {
     didSet { loadImage(from: imageUrl) }
   }
@@ -24,17 +25,17 @@ class DownloadableImageView: UIImageView {
       return
     }
     
-    let session = URLSession(configuration: .ephemeral)
+    
     defer {
       session.finishTasksAndInvalidate()
     }
-    
+
     let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
       guard error == nil else {
         print(error as Any)
         return
       }
-      
+     
       DispatchQueue.main.async(execute: {
         let imageData = UIImage(data: data!)
         self.alpha = 0
@@ -46,8 +47,6 @@ class DownloadableImageView: UIImageView {
       })
     })
     task.resume()
-    
-    //URLSession.finishTasksAndInvalidate(.shared)
   }
   
 }

@@ -8,9 +8,7 @@
 
 import UIKit
 
-// 멤버변수 표기 활성화 + m
-// 필터의 접근할 개체 구분하기 위해 접근제어 추가
-// 메소드 명칭 좀더 구체화 (하려고 하는 행동에 대한 더욱더 명확한 정의 필요)
+
 class FilterViewController: UIViewController {
   
   @IBOutlet weak var mFilterTableView: UITableView!

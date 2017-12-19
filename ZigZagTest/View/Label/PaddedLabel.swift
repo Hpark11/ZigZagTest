@@ -19,12 +19,14 @@ class PaddedLabel: UILabel {
   @IBInspectable var cornerRadius: CGFloat = 0
   @IBInspectable var borderColor: UIColor = .lightGray
   
+  @IBInspectable var masksToBounds: Bool = true
+  
   override func drawText(in rect: CGRect) {
     layer.borderWidth = borderWidth
     layer.borderColor = borderColor.cgColor
     layer.cornerRadius = cornerRadius
+    layer.masksToBounds = masksToBounds
     
-    layer.masksToBounds = true
     let insets: UIEdgeInsets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
     super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
   }

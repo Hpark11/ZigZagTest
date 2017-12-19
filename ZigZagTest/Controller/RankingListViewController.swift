@@ -8,10 +8,6 @@
 
 import UIKit
 
-// 최대한 xib에 연결
-
-// 매번 데이터를 로드하는 것은 불필요, 필요할 때만 받아서 업데이트 하는 방식으로 수정
-// 의도를 좀 더 명확히 할 수 있는 방향으로 짜라
 protocol RankingListViewControllerDelegate: class {
   func applyFilter()
 }
@@ -46,7 +42,7 @@ class RankingListViewController: UIViewController, RankingListViewControllerDele
     mShoppingMallTableView.reloadData()
   }
   
-  @IBAction func onOpenFilter(_ sender: Any) {
+  @IBAction func openFilterViewController(_ sender: Any) {
     performSegue(withIdentifier: "openFilter", sender: self)
   }
   

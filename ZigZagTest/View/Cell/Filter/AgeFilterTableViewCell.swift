@@ -11,11 +11,9 @@ import UIKit
 
 class AgeFilterTableViewCell: UITableViewCell, NibLoadable {
 
-  // 상수형태 최대한 avoid
   let columns = FilterService.shared.columns(.age)
   let itemCount = FilterService.shared.ages.count
   
-  // 왜 optional 썼는지 혹은 사용 목적이나 의도 더욱 분명히 파악해서 수정
   var mCheckFilter: ((RoundedButton) -> ())!
   
   func configure(conditions: [Int], check: @escaping (RoundedButton) -> ()) {
@@ -44,8 +42,6 @@ class AgeFilterTableViewCell: UITableViewCell, NibLoadable {
     contentView.translatesAutoresizingMaskIntoConstraints = true
   }
   
-  // 이름 바꾸라
-  // selector에 대해서 좀더 확인 요망
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }

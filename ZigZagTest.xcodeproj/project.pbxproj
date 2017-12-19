@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DB43ED89114F2AA429A5697 /* Pods_ZigZagTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6071B82465856636B0F27F /* Pods_ZigZagTestUITests.framework */; };
+		5A0753B31FE7B808006137BF /* FilterItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0753B21FE7B808006137BF /* FilterItemButton.swift */; };
 		5A2394021FDF7C8B00B14E5B /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2394011FDF7C8B00B14E5B /* ModelBase.swift */; };
 		5A2394081FDFBC1F00B14E5B /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2394071FDFBC1F00B14E5B /* UIView+Ext.swift */; };
 		5A23940D1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23940B1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		22A019C1BBAC7B1239E30BC9 /* Pods-ZigZagTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestTests/Pods-ZigZagTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		43BC97858FCC51CC974F9BBF /* Pods_ZigZagTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZigZagTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F5B1FC7725BCCAC39692A1 /* Pods-ZigZagTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZigZagTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZigZagTestUITests/Pods-ZigZagTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5A0753B21FE7B808006137BF /* FilterItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItemButton.swift; sourceTree = "<group>"; };
 		5A2394011FDF7C8B00B14E5B /* ModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		5A2394071FDFBC1F00B14E5B /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		5A23940B1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeFilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				817BFCAF1F8F35EB00B9ABB0 /* RoundedButton.swift */,
+				5A0753B21FE7B808006137BF /* FilterItemButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				5A23940D1FDFC3D400B14E5B /* AgeFilterTableViewCell.swift in Sources */,
 				8167653B1F926ADD006DD5EE /* PaddedLabel.swift in Sources */,
 				811133321F8E19BC00604D22 /* AppDelegate.swift in Sources */,
+				5A0753B31FE7B808006137BF /* FilterItemButton.swift in Sources */,
 				815165631F8E8E15001493FD /* FilterService.swift in Sources */,
 				8111336D1F8E306300604D22 /* RankingListViewController.swift in Sources */,
 				81E4ABC51F93B108005C6B38 /* UIColor+Ext.swift in Sources */,
