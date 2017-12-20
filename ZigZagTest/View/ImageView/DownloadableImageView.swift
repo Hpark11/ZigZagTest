@@ -4,15 +4,15 @@
 //
 //  Created by hPark_ipl on 2017. 10. 14..
 //  Copyright © 2017년 hPark. All rights reserved.
-//
+// 
 
 import UIKit
 
 let imageCache: NSCache<NSString, UIImage> = NSCache()
 
 class DownloadableImageView: UIImageView {
-  
-  var session = URLSession(configuration: .ephemeral)
+  private var session = URLSession(configuration: .default)
+  private var task: URLSessionDataTask!
   
   var imageUrl: String = "" {
     didSet { loadImage(from: imageUrl) }
@@ -26,10 +26,10 @@ class DownloadableImageView: UIImageView {
       return
     }
     
-    defer { session.finishTasksAndInvalidate() }
-
-    session = URLSession(configuration: .ephemeral)
-    let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+    session = URLSession(configuration: .default)
+    task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+      self.session.finishTasksAndInvalidate()
+      
       guard error == nil else {
         print(error as Any)
         return
@@ -49,8 +49,13 @@ class DownloadableImageView: UIImageView {
         }
       })
     })
+    
     task.resume()
   }
   
+  func cancelImageLoaderTask() {
+    image = nil
+    task.cancel()
+  }
 }
 

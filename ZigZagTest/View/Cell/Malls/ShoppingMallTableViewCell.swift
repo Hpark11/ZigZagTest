@@ -9,7 +9,6 @@
 import UIKit
 
 class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
-  
   @IBOutlet weak var mRankLabel: UILabel!
   @IBOutlet weak var mShopImageView: DownloadableImageView!
   @IBOutlet weak var mShopNameLabel: UILabel!
@@ -54,8 +53,7 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   }
   
   override func prepareForReuse() {
-    mShopImageView.image = nil
-    mShopImageView.session.invalidateAndCancel()
+    mShopImageView.cancelImageLoaderTask()
     super.prepareForReuse()
   }
 }

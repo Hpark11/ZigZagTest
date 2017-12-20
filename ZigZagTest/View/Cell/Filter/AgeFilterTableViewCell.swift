@@ -10,7 +10,6 @@ import UIKit
 
 
 class AgeFilterTableViewCell: UITableViewCell, NibLoadable {
-
   private let mColumns = FilterService.Category.age.columns
   private let mItemCount = FilterService.shared.AGES.count
   

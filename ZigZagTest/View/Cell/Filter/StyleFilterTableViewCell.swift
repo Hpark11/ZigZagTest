@@ -9,7 +9,6 @@
 import UIKit
 
 class StyleFilterTableViewCell: UITableViewCell, NibLoadable {
-
   private let mColumns = FilterService.Category.style.columns
   private let mItemCount = FilterService.shared.STYLES.count
   

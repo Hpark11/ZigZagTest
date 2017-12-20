@@ -23,7 +23,7 @@ final class APIService {
     return week
   })
   
-  static let list = ModelBase<[ShoppingMall]>(path: "shopList", parser: { json in
+  static let shopList = ModelBase<[ShoppingMall]>(path: "shopList", parser: { json in
     guard let dict = json as? [String: AnyObject], let list = dict["list"] as? [[String: Any]] else {
       return nil
     }

@@ -9,7 +9,6 @@
 import UIKit
 
 class RankingListViewController: UIViewController {
-  
   @IBOutlet weak var mShoppingMallTableView: UITableView!
   
   private var mMallsOrigin  = [ShoppingMall]()
@@ -18,7 +17,6 @@ class RankingListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
     mShoppingMallTableView.register(ShoppingMallTableViewCell.self)
     
     APIService().request(APIService.week) { [unowned self] result in
@@ -26,7 +24,7 @@ class RankingListViewController: UIViewController {
       self.mWeek = week
     }
     
-    APIService().request(APIService.list) { [unowned self] result in
+    APIService().request(APIService.shopList) { [unowned self] result in
       guard let malls = result else { return }
       self.mMallsOrigin = malls
       self.applyFilter()
@@ -52,7 +50,6 @@ class RankingListViewController: UIViewController {
 }
 
 extension RankingListViewController: UITableViewDelegate, UITableViewDataSource {
-  
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return mWeek
   }

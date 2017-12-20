@@ -18,26 +18,22 @@ final class FilterService {
   var conditionsByStyles: [String]
   
   enum Category: String {
-    typealias Identity = String
+    
     case age = "ages"
     case style = "styles"
     
     var val: String { return self.rawValue }
     var columns: Int {
       switch self {
-      case .age:
-        return 4
-      case .style:
-        return 3
+      case .age: return 4
+      case .style: return 3
       }
     }
     
     var keyColor: UIColor {
       switch self {
-      case .age:
-        return .black
-      case .style:
-        return .purple
+      case .age: return .black
+      case .style: return .purple
       }
     }
   }
