@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxDataSources
 
 struct ShoppingMall {
   let name: String
@@ -33,15 +32,13 @@ extension ShoppingMall {
   }
 }
 
-extension ShoppingMall: IdentifiableType, Equatable {
-  var identity: String {
-    return url
-  }
-  
+extension ShoppingMall: Equatable {
   static func ==(lhs: ShoppingMall, rhs: ShoppingMall) -> Bool {
     return lhs.url == rhs.url
   }
 }
+
+
 
 
 

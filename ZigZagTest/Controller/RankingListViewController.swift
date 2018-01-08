@@ -7,47 +7,70 @@
 //
 
 import UIKit
-import RxSwift
-import RxDataSources
 
-class RankingListViewController: UIViewController, ViewModelBindable {
-  @IBOutlet weak var filterButton: UIBarButtonItem!
-  @IBOutlet weak var shoppingMallTableView: UITableView!
+class RankingListViewController: UIViewController {
+  @IBOutlet weak var mShoppingMallTableView: UITableView!
   
-  var week = Variable<String>("")
-  var viewModel: RankingListViewModel!
-  
-  let disposeBag = DisposeBag()
-  let dataSource = RxTableViewSectionedAnimatedDataSource<ShopSection>()
+  private var mMallsOrigin  = [ShoppingMall]()
+  private var mMalls        = [ShoppingMall]()
+  private var mWeek         = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configure()
+    mShoppingMallTableView.register(ShoppingMallTableViewCell.self)
     
-    viewModel.items
-      .bind(to: shoppingMallTableView.rx.items(dataSource: dataSource))
-      .disposed(by: disposeBag)
+    APIService().request(APIService.week) { [unowned self] result in
+      guard let week = result else { return }
+      self.mWeek = week
+    }
+    
+    APIService().request(APIService.shopList) { [unowned self] result in
+      guard let malls = result else { return }
+      self.mMallsOrigin = malls
+      self.applyFilter()
+    }
   }
   
-  func bind() {
-    filterButton.rx.action = viewModel.filterAction
-    APIService.week.bind(to: week).disposed(by: disposeBag)
+  private func applyFilter() {
+    mMalls = FilterService.shared.filteredMalls(malls: mMallsOrigin)
+    mShoppingMallTableView.reloadData()
   }
   
-  private func configure() {
-    shoppingMallTableView.register(ShoppingMallTableViewCell.self)
-    shoppingMallTableView.estimatedRowHeight = 64
-    shoppingMallTableView.separatorStyle = .none
+  @IBAction func openFilterViewController(_ sender: Any) {
+    performSegue(withIdentifier: "openFilter", sender: self)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "openFilter" {
+      let nc = segue.destination as! UINavigationController
+      guard let vc = nc.viewControllers.first as? FilterViewController else { return }
+      vc.delegate = self
+    }
+  }
+}
 
-    dataSource.titleForHeaderInSection = { [weak self] _ in
-      guard let base = self else { return "" }
-      return "\(base.week.value)차 랭킹"
-    }
-    
-    dataSource.configureCell = { data, tableView, indexPath, shop in
-      let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ShoppingMallTableViewCell
-      cell.configure(shop: shop, index: indexPath.row)
-      return cell
-    }
+extension RankingListViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return mWeek
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return mMalls.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ShoppingMallTableViewCell
+    cell.configure(shop: mMalls[indexPath.row], index: indexPath.row)
+    return cell
+  }
+}
+
+extension RankingListViewController: FilterViewControllerDelegate {
+  func onFilterChanged() {
+    applyFilter()
   }
 }

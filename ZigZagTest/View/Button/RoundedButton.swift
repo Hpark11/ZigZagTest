@@ -14,39 +14,33 @@ class RoundedButton: UIButton {
       setSelectedState(isChecked)
     }
   }
-  private var color: UIColor = .black
+  private var mColor: UIColor = .black
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
   required init(title: String, color: UIColor) {
-    self.color = color
+    mColor = color
     super.init(frame: .zero)
     
     backgroundColor = .white
-    self.tintColor = self.color
-    self.layer.borderColor = self.color.cgColor
-    self.layer.borderWidth = 1.0
-    self.layer.cornerRadius = 8
+    tintColor = mColor
+    layer.borderColor = mColor.cgColor
+    layer.borderWidth = 1.0
+    layer.cornerRadius = 8
     
-    self.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-    self.titleLabel?.adjustsFontSizeToFitWidth = true
-    self.setTitle(title, for: .normal)
-    self.setTitleColor(self.color, for: .normal)
-    self.isUserInteractionEnabled = true
+    titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    titleLabel?.adjustsFontSizeToFitWidth = true
+    setTitle(title, for: .normal)
+    setTitleColor(mColor, for: .normal)
+    isUserInteractionEnabled = true
   }
   
   private func setSelectedState(_ b: Bool) {
-    if b == true {
-      self.backgroundColor = self.color
-      self.tintColor = self.color
-      self.setTitleColor(.white, for: .normal)
-    } else {
-      self.backgroundColor = UIColor.white
-      self.tintColor = UIColor.white
-      self.setTitleColor(self.color, for: .normal)
-    }
+    backgroundColor = b ? mColor : UIColor.white
+    tintColor = b ? mColor : UIColor.white
+    setTitleColor(b ? .white : mColor, for: .normal)
   }
 }
 
