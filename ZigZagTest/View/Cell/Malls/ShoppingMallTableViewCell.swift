@@ -17,13 +17,18 @@ class ShoppingMallTableViewCell: UITableViewCell, NibLoadable {
   @IBOutlet weak var mFirstStyleLabel: PaddedLabel!
   @IBOutlet weak var mSecondStyleLabel: PaddedLabel!
   
+  var borderColor = UIColor.white.cgColor
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
   
   func configureStyleLabel(name: String, label: PaddedLabel) {
     label.text = name
-    label.layer.borderColor = FilterService.shared.STYLES[name]!.bd.cgColor
+    
+    borderColor = FilterService.shared.STYLES[name]!.bd.cgColor
+    
+    label.layer.borderColor = borderColor
     label.textColor = FilterService.shared.STYLES[name]!.bd
     label.backgroundColor = FilterService.shared.STYLES[name]!.bg
   }

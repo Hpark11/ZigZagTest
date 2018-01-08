@@ -21,7 +21,7 @@ class PaddedLabel: UILabel {
   @IBInspectable var masksToBounds: Bool = true
   
   override func drawText(in rect: CGRect) {
-    layer.borderWidth = borderWidth
+    layer.borderWidth = 1
     layer.borderColor = borderColor.cgColor
     layer.cornerRadius = cornerRadius
     layer.masksToBounds = masksToBounds

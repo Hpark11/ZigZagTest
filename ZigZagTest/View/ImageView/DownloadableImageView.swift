@@ -11,8 +11,7 @@ import UIKit
 let imageCache: NSCache<NSString, UIImage> = NSCache()
 
 class DownloadableImageView: UIImageView {
-  private var session = URLSession(configuration: .default)
-  private var task: URLSessionDataTask!
+  private var mTask: URLSessionDataTask?
   
   var imageUrl: String = "" {
     didSet { loadImage(from: imageUrl) }
@@ -26,9 +25,9 @@ class DownloadableImageView: UIImageView {
       return
     }
     
-    session = URLSession(configuration: .default)
-    task = session.dataTask(with: url, completionHandler: { (data, response, error) in
-      self.session.finishTasksAndInvalidate()
+    let session = URLSession(configuration: .default)
+    mTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
+      session.finishTasksAndInvalidate()
       
       guard error == nil else {
         print(error as Any)
@@ -50,12 +49,13 @@ class DownloadableImageView: UIImageView {
       })
     })
     
-    task.resume()
+    mTask?.resume()
   }
   
   func cancelImageLoaderTask() {
     image = nil
-    task.cancel()
+    mTask?.cancel()
+    mTask = nil
   }
 }
 
